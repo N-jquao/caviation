@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/nocturne-0c353d1b-6a46-40f6-b9c5-bad1c5a16f72/styles.css">
+<script src="_ds/nocturne-0c353d1b-6a46-40f6-b9c5-bad1c5a16f72/_ds_bundle.js"></script>
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<script src="./image-slot.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { margin: 0; }
+  /* responsive collapse only — all base styling stays inline */
+  @media (max-width: 860px) {
+    [data-fleet-grid] { grid-template-columns: 1fr !important; }
+    [data-fleet-tabs] { flex-direction: row !important; overflow-x: auto; padding-bottom: 4px; }
+    [data-fleet-tabs] > button { flex: 0 0 auto; min-width: 190px; }
+    [data-safety-grid], [data-contact-grid] { grid-template-columns: 1fr !important; }
+    [data-footer-grid] { grid-template-columns: 1fr 1fr !important; }
+  }
+  @media (max-width: 640px) {
+    [data-stats] { grid-template-columns: 1fr 1fr !important; }
+    [data-clients] { grid-template-columns: 1fr 1fr 1fr !important; }
+    [data-form-row] { grid-template-columns: 1fr !important; }
+    [data-footer-grid] { grid-template-columns: 1fr !important; }
+  }
+</style>
+</helmet>
+
+<div id="top" style="background:radial-gradient(1200px 720px at 82% -160px, color-mix(in srgb, var(--color-accent-900) 70%, transparent), transparent 60%), radial-gradient(1100px 800px at -10% 100%, color-mix(in srgb, black 30%, transparent), transparent 55%), var(--color-bg); color:var(--color-text); font-family:var(--font-body); overflow-x:hidden;">
+
+  <header style="position:sticky;top:0;z-index:60;backdrop-filter:blur(16px);background:color-mix(in srgb, var(--color-bg) 80%, transparent);border-bottom:1px solid var(--color-divider)">
+    <div style="max-width:1180px;margin:0 auto;padding:13px clamp(18px,5vw,72px);display:flex;align-items:center;gap:24px">
+      <a href="#top" style="display:flex;align-items:center;margin-right:auto;text-decoration:none;flex:none">
+        <img src="uploads/logo-1784389045205.png" alt="Century Aviation Ghana" style="height:58px;width:auto;filter:brightness(0) invert(1)" />
+      </a>
+      <sc-if value="{{ desktopNav }}" hint-placeholder-val="{{ true }}">
+        <nav style="display:flex;align-items:center;gap:28px">
+          <a href="#top" style="color:var(--color-accent);text-decoration:none;font-size:14.5px;font-family:var(--font-heading);border-bottom:2px solid var(--color-accent);padding-bottom:2px">Home</a>
+          <div style="position:relative;padding-bottom:16px;margin-bottom:-16px" onMouseEnter="{{ hoverAbout }}" onMouseLeave="{{ leaveDrop }}">
+            <button type="button" style="display:inline-flex;align-items:center;gap:5px;background:transparent;border:0;cursor:pointer;color:color-mix(in srgb,var(--color-text) 80%,transparent);font-size:14.5px;font-family:var(--font-heading);padding:0" style-hover="color:var(--color-accent)">About Us <i class="ph ph-caret-down" style="font-size:12px"></i></button>
+            <sc-if value="{{ aboutOpen }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;top:calc(100% - 2px);left:-16px;min-width:210px;background:var(--color-surface);border:1px solid var(--color-divider);border-radius:var(--radius-md);box-shadow:var(--shadow-md);padding:8px;display:flex;flex-direction:column;z-index:70">
+                <a href="Century%20Story.dc.html" style="padding:9px 12px;border-radius:var(--radius-sm);color:color-mix(in srgb,var(--color-text) 82%,transparent);text-decoration:none;font-size:14px" style-hover="background:color-mix(in srgb,var(--color-accent) 12%,transparent);color:var(--color-accent)">Century Story</a>
+                <a href="Mission%20and%20Vision.dc.html" style="padding:9px 12px;border-radius:var(--radius-sm);color:color-mix(in srgb,var(--color-text) 82%,transparent);text-decoration:none;font-size:14px" style-hover="background:color-mix(in srgb,var(--color-accent) 12%,transparent);color:var(--color-accent)">Mission &amp; Vision</a>
+                <a href="Century%20Leadership.dc.html" style="padding:9px 12px;border-radius:var(--radius-sm);color:color-mix(in srgb,var(--color-text) 82%,transparent);text-decoration:none;font-size:14px" style-hover="background:color-mix(in srgb,var(--color-accent) 12%,transparent);color:var(--color-accent)">Century Leadership</a>
+                <a href="Core%20Values.dc.html" style="padding:9px 12px;border-radius:var(--radius-sm);color:color-mix(in srgb,var(--color-text) 82%,transparent);text-decoration:none;font-size:14px" style-hover="background:color-mix(in srgb,var(--color-accent) 12%,transparent);color:var(--color-accent)">Core Values</a>
+              </div>
+            </sc-if>
+          </div>
+          <div style="position:relative;padding-bottom:16px;margin-bottom:-16px" onMouseEnter="{{ hoverServices }}" onMouseLeave="{{ leaveDrop }}">
+            <button type="button" style="display:inline-flex;align-items:center;gap:5px;background:transparent;border:0;cursor:pointer;color:color-mix(in srgb,var(--color-text) 80%,transparent);font-size:14.5px;font-family:var(--font-heading);padding:0" style-hover="color:var(--color-accent)">Century Services <i class="ph ph-caret-down" style="font-size:12px"></i></button>
+            <sc-if value="{{ servicesOpen }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;top:calc(100% - 2px);left:-16px;min-width:230px;background:var(--color-surface);border:1px solid var(--color-divider);border-radius:var(--radius-md);box-shadow:var(--shadow-md);padding:8px;display:flex;flex-direction:column;z-index:70">
+                <a href="Helicopter%20Support.dc.html" style="padding:9px 12px;border-radius:var(--radius-sm);color:color-mix(in srgb,var(--color-text) 82%,transparent);text-decoration:none;font-size:14px" style-hover="background:color-mix(in srgb,var(--color-accent) 12%,transparent);color:var(--color-accent)">Helicopter Support</a>
+                <a href="Aircraft%20Charter%20Services.dc.html" style="padding:9px 12px;border-radius:var(--radius-sm);color:color-mix(in srgb,var(--color-text) 82%,transparent);text-decoration:none;font-size:14px" style-hover="background:color-mix(in srgb,var(--color-accent) 12%,transparent);color:var(--color-accent)">Aircraft Charter Services</a>
+                <a href="Airside%20Services.dc.html" style="padding:9px 12px;border-radius:var(--radius-sm);color:color-mix(in srgb,var(--color-text) 82%,transparent);text-decoration:none;font-size:14px" style-hover="background:color-mix(in srgb,var(--color-accent) 12%,transparent);color:var(--color-accent)">Airside Services</a>
+              </div>
+            </sc-if>
+          </div>
+          <a href="Local%20Content%20Commitment.dc.html" style="color:color-mix(in srgb,var(--color-text) 80%,transparent);text-decoration:none;font-size:14.5px;font-family:var(--font-heading)" style-hover="color:var(--color-accent)">Local Content Commitment</a>
+          <a href="#contact" style="color:color-mix(in srgb,var(--color-text) 80%,transparent);text-decoration:none;font-size:14.5px;font-family:var(--font-heading)" style-hover="color:var(--color-accent)">Contact Us</a>
+          <button type="button" onClick="{{ toggleSearch }}" aria-label="Search" style="width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:0;cursor:pointer;color:color-mix(in srgb,var(--color-text) 80%,transparent);font-size:18px" style-hover="color:var(--color-accent)"><i class="ph ph-magnifying-glass"></i></button>
+        </nav>
+      </sc-if>
+      <sc-if value="{{ mobileNav }}" hint-placeholder-val="{{ false }}">
+        <button type="button" onClick="{{ toggleMenu }}" aria-label="Menu" style="width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:1px solid var(--color-divider);border-radius:var(--radius-md);color:var(--color-text);cursor:pointer;font-size:22px">
+          <i class="ph ph-list"></i>
+        </button>
+      </sc-if>
+    </div>
+    <sc-if value="{{ menu }}" hint-placeholder-val="{{ false }}">
+      <div style="border-top:1px solid var(--color-divider);padding:8px clamp(18px,5vw,72px) 18px;display:flex;flex-direction:column;gap:2px;background:color-mix(in srgb, var(--color-bg) 96%, transparent)">
+        <a href="#top" onClick="{{ closeMenu }}" style="padding:12px 4px;color:var(--color-accent);text-decoration:none;font-size:16px;font-family:var(--font-heading);border-bottom:1px solid var(--color-divider)">Home</a>
+        <a href="Century%20Story.dc.html" onClick="{{ closeMenu }}" style="padding:12px 4px;color:var(--color-text);text-decoration:none;font-size:16px;font-family:var(--font-heading);border-bottom:1px solid var(--color-divider)">About Us</a>
+        <a href="#services" onClick="{{ closeMenu }}" style="padding:12px 4px;color:var(--color-text);text-decoration:none;font-size:16px;font-family:var(--font-heading);border-bottom:1px solid var(--color-divider)">Century Services</a>
+        <a href="Local%20Content%20Commitment.dc.html" onClick="{{ closeMenu }}" style="padding:12px 4px;color:var(--color-text);text-decoration:none;font-size:16px;font-family:var(--font-heading);border-bottom:1px solid var(--color-divider)">Local Content Commitment</a>
+        <a href="#contact" onClick="{{ closeMenu }}" style="padding:12px 4px;color:var(--color-text);text-decoration:none;font-size:16px;font-family:var(--font-heading)">Contact Us</a>
+        <a href="#contact" onClick="{{ closeMenu }}" class="btn btn-primary" style="margin-top:10px;font-size:14px;padding:11px 16px">Request a Quote</a>
+      </div>
+    </sc-if>
+    <sc-if value="{{ searchOpen }}" hint-placeholder-val="{{ false }}">
+      <div style="border-top:1px solid var(--color-divider);background:color-mix(in srgb, var(--color-bg) 96%, transparent)">
+        <div style="max-width:1180px;margin:0 auto;padding:16px clamp(18px,5vw,72px);display:flex;gap:12px;align-items:center">
+          <i class="ph ph-magnifying-glass" style="font-size:20px;color:var(--color-accent)"></i>
+          <input class="input" type="search" placeholder="Search the site…" style="flex:1" />
+          <button type="button" onClick="{{ toggleSearch }}" aria-label="Close search" style="width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:0;cursor:pointer;color:color-mix(in srgb,var(--color-text) 70%,transparent);font-size:18px" style-hover="color:var(--color-accent)"><i class="ph ph-x"></i></button>
+        </div>
+      </div>
+    </sc-if>
+  </header>
+
+  <!-- ═══ HERO SLIDER ═══ -->
+  <section style="position:relative;min-height:min(88vh,760px);display:flex;overflow:hidden">
+    <div style="position:absolute;inset:0;transition:opacity 1.1s ease;opacity:{{ heroOp0 }};pointer-events:{{ heroPe0 }}">
+      <div style="position:absolute;inset:0"><image-slot id="hero-0" shape="rect" fit="cover" src="uploads/private-jets.jpeg" placeholder="Private jet above the clouds" style="position:absolute;inset:0;width:100%;height:100%"></image-slot></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg, color-mix(in srgb,var(--color-bg) 40%,transparent) 0%, color-mix(in srgb,var(--color-bg) 30%,transparent) 35%, color-mix(in srgb,var(--color-bg) 92%,transparent) 100%);pointer-events:none"></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(90deg, color-mix(in srgb,var(--color-bg) 78%,transparent) 0%, transparent 62%);pointer-events:none"></div>
+      <div style="position:absolute;inset:0;display:flex;align-items:center">
+        <div style="max-width:1180px;margin:0 auto;padding:0 clamp(18px,5vw,72px);width:100%">
+          <div style="max-width:660px">
+            <span style="display:inline-flex;align-items:center;gap:9px;font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent-300);font-family:var(--font-heading)"><i class="ph ph-airplane-tilt"></i> Helicopter &amp; fixed-wing aviation · Ghana</span>
+            <h1 style="font-family:var(--font-heading);font-weight:500;font-size:clamp(42px,6.2vw,84px);line-height:1.04;letter-spacing:-0.02em;margin:20px 0 0;color:var(--color-neutral-100)">Soaring beyond boundaries</h1>
+            <p style="font-size:clamp(16px,1.6vw,19px);line-height:1.6;color:color-mix(in srgb,var(--color-neutral-100) 90%,transparent);margin:22px 0 0;max-width:520px">Ghana's trusted partner for helicopter support and executive charter — connecting the energy sector, industry and travellers with precision and an uncompromising safety culture.</p>
+            <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:34px">
+              <a href="#contact" class="btn btn-primary" style="font-size:14px;padding:13px 22px;background:var(--color-accent);color:var(--color-bg);border-color:var(--color-accent)">Request a Quote <i class="ph ph-arrow-up-right"></i></a>
+              <a href="#services" class="btn btn-secondary" style="font-size:14px;padding:13px 22px;color:var(--color-neutral-100);border-color:color-mix(in srgb,var(--color-neutral-100) 45%,transparent)">Explore Services</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="position:absolute;inset:0;transition:opacity 1.1s ease;opacity:{{ heroOp1 }};pointer-events:{{ heroPe1 }}">
+      <div style="position:absolute;inset:0"><image-slot id="hero-1" shape="rect" fit="cover" src="uploads/DSC01700.jpg" placeholder="Offshore helicopter on the pad" style="position:absolute;inset:0;width:100%;height:100%"></image-slot></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg, color-mix(in srgb,var(--color-bg) 40%,transparent) 0%, color-mix(in srgb,var(--color-bg) 30%,transparent) 35%, color-mix(in srgb,var(--color-bg) 92%,transparent) 100%);pointer-events:none"></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(90deg, color-mix(in srgb,var(--color-bg) 78%,transparent) 0%, transparent 62%);pointer-events:none"></div>
+      <div style="position:absolute;inset:0;display:flex;align-items:center">
+        <div style="max-width:1180px;margin:0 auto;padding:0 clamp(18px,5vw,72px);width:100%">
+          <div style="max-width:660px">
+            <span style="display:inline-flex;align-items:center;gap:9px;font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent-300);font-family:var(--font-heading)"><i class="ph ph-helicopter"></i> Offshore &amp; onshore support</span>
+            <h1 style="font-family:var(--font-heading);font-weight:500;font-size:clamp(42px,6.2vw,84px);line-height:1.04;letter-spacing:-0.02em;margin:20px 0 0;color:var(--color-neutral-100)">Built for the offshore mission</h1>
+            <p style="font-size:clamp(16px,1.6vw,19px);line-height:1.6;color:color-mix(in srgb,var(--color-neutral-100) 90%,transparent);margin:22px 0 0;max-width:520px">Reliable rotary-wing support bridging shore and sea — vital connectors to offshore platforms, on schedule and to the highest international safety standard.</p>
+            <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:34px">
+              <a href="Helicopter%20Support.dc.html" class="btn btn-primary" style="font-size:14px;padding:13px 22px;background:var(--color-accent);color:var(--color-bg);border-color:var(--color-accent)">Helicopter Support <i class="ph ph-arrow-up-right"></i></a>
+              <a href="#contact" class="btn btn-secondary" style="font-size:14px;padding:13px 22px;color:var(--color-neutral-100);border-color:color-mix(in srgb,var(--color-neutral-100) 45%,transparent)">Talk to Operations</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="position:absolute;inset:0;transition:opacity 1.1s ease;opacity:{{ heroOp2 }};pointer-events:{{ heroPe2 }}">
+      <div style="position:absolute;inset:0"><image-slot id="hero-2" shape="rect" fit="cover" src="uploads/Cessna-Sky-Courier-aircraft-at-Ho-Airport.jpg" placeholder="Executive jet at dusk" style="position:absolute;inset:0;width:100%;height:100%"></image-slot></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg, color-mix(in srgb,var(--color-bg) 40%,transparent) 0%, color-mix(in srgb,var(--color-bg) 30%,transparent) 35%, color-mix(in srgb,var(--color-bg) 92%,transparent) 100%);pointer-events:none"></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(90deg, color-mix(in srgb,var(--color-bg) 78%,transparent) 0%, transparent 62%);pointer-events:none"></div>
+      <div style="position:absolute;inset:0;display:flex;align-items:center">
+        <div style="max-width:1180px;margin:0 auto;padding:0 clamp(18px,5vw,72px);width:100%">
+          <div style="max-width:660px">
+            <span style="display:inline-flex;align-items:center;gap:9px;font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent-300);font-family:var(--font-heading)"><i class="ph ph-airplane-in-flight"></i> Executive &amp; private charter</span>
+            <h1 style="font-family:var(--font-heading);font-weight:500;font-size:clamp(42px,6.2vw,84px);line-height:1.04;letter-spacing:-0.02em;margin:20px 0 0;color:var(--color-neutral-100)">Charter on your terms</h1>
+            <p style="font-size:clamp(16px,1.6vw,19px);line-height:1.6;color:color-mix(in srgb,var(--color-neutral-100) 90%,transparent);margin:22px 0 0;max-width:520px">Private jet and turboprop charter with the discretion, comfort and precision your schedule demands — across Ghana, West Africa and beyond.</p>
+            <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:34px">
+              <a href="#fleet" class="btn btn-primary" style="font-size:14px;padding:13px 22px;background:var(--color-accent);color:var(--color-bg);border-color:var(--color-accent)">View the Fleet <i class="ph ph-arrow-up-right"></i></a>
+              <a href="#contact" class="btn btn-secondary" style="font-size:14px;padding:13px 22px;color:var(--color-neutral-100);border-color:color-mix(in srgb,var(--color-neutral-100) 45%,transparent)">Book a Charter</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button type="button" onClick="{{ heroPrev }}" aria-label="Previous slide" style="position:absolute;left:clamp(10px,2vw,26px);top:50%;transform:translateY(-50%);z-index:5;width:48px;height:48px;border-radius:50%;background:color-mix(in srgb,var(--color-bg) 55%,transparent);border:1px solid color-mix(in srgb,var(--color-neutral-100) 30%,transparent);color:var(--color-neutral-100);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:20px;backdrop-filter:blur(4px)" style-hover="background:color-mix(in srgb,var(--color-accent) 85%,transparent);color:var(--color-bg)"><i class="ph ph-caret-left"></i></button>
+    <button type="button" onClick="{{ heroNext }}" aria-label="Next slide" style="position:absolute;right:clamp(10px,2vw,26px);top:50%;transform:translateY(-50%);z-index:5;width:48px;height:48px;border-radius:50%;background:color-mix(in srgb,var(--color-bg) 55%,transparent);border:1px solid color-mix(in srgb,var(--color-neutral-100) 30%,transparent);color:var(--color-neutral-100);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:20px;backdrop-filter:blur(4px)" style-hover="background:color-mix(in srgb,var(--color-accent) 85%,transparent);color:var(--color-bg)"><i class="ph ph-caret-right"></i></button>
+    <div style="position:absolute;bottom:26px;left:0;right:0;z-index:5;display:flex;gap:10px;justify-content:center">
+      <button type="button" onClick="{{ setHero0 }}" aria-label="Slide 1" style="width:34px;height:4px;border-radius:2px;border:0;cursor:pointer;transition:background .3s;background:{{ dot0 }}"></button>
+      <button type="button" onClick="{{ setHero1 }}" aria-label="Slide 2" style="width:34px;height:4px;border-radius:2px;border:0;cursor:pointer;transition:background .3s;background:{{ dot1 }}"></button>
+      <button type="button" onClick="{{ setHero2 }}" aria-label="Slide 3" style="width:34px;height:4px;border-radius:2px;border:0;cursor:pointer;transition:background .3s;background:{{ dot2 }}"></button>
+    </div>
+  </section>
+
+  <!-- ═══ STAT BAND ═══ -->
+  <section style="background:radial-gradient(900px 420px at 85% -40%, color-mix(in srgb, var(--color-section-glow) 70%, transparent), transparent 64%), var(--color-section);padding:clamp(40px,6vw,68px) 0">
+    <div style="max-width:1180px;margin:0 auto;padding:0 clamp(18px,5vw,72px);display:grid;grid-template-columns:repeat(4,1fr);gap:32px 24px" data-stats>
+      <div><p style="font-family:var(--font-heading);font-weight:500;font-size:clamp(34px,3.6vw,50px);line-height:1;margin:0;color:var(--color-neutral-100)">14+</p><p style="font-size:13px;letter-spacing:0.07em;text-transform:uppercase;color:color-mix(in srgb,var(--color-neutral-100) 68%,transparent);margin:12px 0 0">Years in the energy sector</p></div>
+      <div><p style="font-family:var(--font-heading);font-weight:500;font-size:clamp(34px,3.6vw,50px);line-height:1;margin:0;color:var(--color-neutral-100)">24/7</p><p style="font-size:13px;letter-spacing:0.07em;text-transform:uppercase;color:color-mix(in srgb,var(--color-neutral-100) 68%,transparent);margin:12px 0 0">Dispatch &amp; operations</p></div>
+      <div><p style="font-family:var(--font-heading);font-weight:500;font-size:clamp(34px,3.6vw,50px);line-height:1;margin:0;color:var(--color-neutral-100)">100%</p><p style="font-size:13px;letter-spacing:0.07em;text-transform:uppercase;color:color-mix(in srgb,var(--color-neutral-100) 68%,transparent);margin:12px 0 0">Safety-first culture</p></div>
+      <div><p style="font-family:var(--font-heading);font-weight:500;font-size:clamp(34px,3.6vw,50px);line-height:1;margin:0;color:var(--color-neutral-100)">Local</p><p style="font-size:13px;letter-spacing:0.07em;text-transform:uppercase;color:color-mix(in srgb,var(--color-neutral-100) 68%,transparent);margin:12px 0 0">Ghanaian owned &amp; operated</p></div>
+    </div>
+  </section>
+
+  <!-- ═══ SERVICES ═══ -->
+  <section id="services" style="scroll-margin-top:84px;padding:clamp(64px,9vw,116px) 0">
+    <div style="max-width:1180px;margin:0 auto;padding:0 clamp(18px,5vw,72px)">
+      <span style="display:block;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent);font-family:var(--font-heading)">What we do</span>
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-top:14px">
+        <h2 style="font-family:var(--font-heading);font-weight:500;font-size:clamp(30px,4vw,46px);line-height:1.08;letter-spacing:-0.02em;margin:0;max-width:640px">Three service lines, one standard of excellence</h2>
+        <a href="#contact" class="btn btn-ghost" style="font-size:14px">Discuss your requirement <i class="ph ph-arrow-right"></i></a>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;margin-top:48px">
+        <div style="position:relative;border-radius:var(--radius-lg);overflow:hidden;background:var(--color-surface);box-shadow:var(--shadow-md);display:flex;flex-direction:column" style-hover="box-shadow:var(--shadow-lg)">
+          <div style="position:relative;height:220px"><image-slot id="svc-heli" shape="rect" fit="cover" placeholder="Helicopter operations" style="position:absolute;inset:0;width:100%;height:100%"></image-slot><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%, color-mix(in srgb,var(--color-surface) 92%,transparent) 100%);pointer-events:none"></div><span class="tag tag-accent" style="position:absolute;top:14px;left:14px">Lead service</span></div>
+          <div style="padding:24px 24px 26px;display:flex;flex-direction:column;gap:12px;flex:1">
+            <div style="display:flex;align-items:center;gap:11px"><i class="ph ph-helicopter" style="font-size:24px;color:var(--color-accent)"></i><h3 style="font-family:var(--font-heading);font-weight:500;font-size:21px;margin:0">Helicopter Support</h3></div>
+            <p style="font-size:14.5px;line-height:1.6;color:color-mix(in srgb,var(--color-text) 78%,transparent);margin:0;flex:1">The principal helicopter service supplier to the energy business — offshore crew transfers, medevac readiness and mission-critical logistics that keep the oil &amp; gas industry moving.</p>
+            <a href="Helicopter%20Support.dc.html" style="color:var(--color-accent-300);text-decoration:none;font-size:14px;font-family:var(--font-heading);display:inline-flex;align-items:center;gap:6px;margin-top:4px">Learn more <i class="ph ph-arrow-right"></i></a>
+          </div>
+        </div>
+        <div style="position:relative;border-radius:var(--radius-lg);overflow:hidden;background:var(--color-surface);box-shadow:var(--shadow-md);display:flex;flex-direction:column" style-hover="box-shadow:var(--shadow-lg)">
+          <div style="position:relative;height:220px"><image-slot id="svc-charter" shape="rect" fit="cover" placeholder="Executive jet charter" style="position:absolute;inset:0;width:100%;height:100%"></image-slot><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%, color-mix(in srgb,var(--color-surface) 92%,transparent) 100%);pointer-events:none"></div></div>
+          <div style="padding:24px 24px 26px;display:flex;flex-direction:column;gap:12px;flex:1">
+            <div style="display:flex;align-items:center;gap:11px"><i class="ph ph-airplane-in-flight" style="font-size:24px;color:var(--color-accent)"></i><h3 style="font-family:var(--font-heading);font-weight:500;font-size:21px;margin:0">Aircraft Charter</h3></div>
+            <p style="font-size:14.5px;line-height:1.6;color:color-mix(in srgb,var(--color-text) 78%,transparent);margin:0;flex:1">Private jet and turboprop charter for executives, government and corporate travel — flexible schedules, discreet service and coverage across the region.</p>
+            <a href="Aircraft%20Charter%20Services.dc.html" style="color:var(--color-accent-300);text-decoration:none;font-size:14px;font-family:var(--font-heading);display:inline-flex;align-items:center;gap:6px;margin-top:4px">Learn more <i class="ph ph-arrow-right"></i></a>
+          </div>
+        </div>
+        <div style="position:relative;border-radius:var(--radius-lg);overflow:hidden;background:var(--color-surface);box-shadow:var(--shadow-md);display:flex;flex-direction:column" style-hover="box-shadow:var(--shadow-lg)">
+          <div style="position:relative;height:220px"><image-slot id="svc-airside" shape="rect" fit="cover" placeholder="Airside ground operations" style="position:absolute;inset:0;width:100%;height:100%"></image-slot><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%, color-mix(in srgb,var(--color-surface) 92%,transparent) 100%);pointer-events:none"></div></div>
+          <div style="padding:24px 24px 26px;display:flex;flex-direction:column;gap:12px;flex:1">
+            <div style="display:flex;align-items:center;gap:11px"><i class="ph ph-gas-pump" style="font-size:24px;color:var(--color-accent)"></i><h3 style="font-family:var(--font-heading);font-weight:500;font-size:21px;margin:0">Airside Services</h3></div>
+            <p style="font-size:14.5px;line-height:1.6;color:color-mix(in srgb,var(--color-text) 78%,transparent);margin:0;flex:1">Fuelling, ground handling and ramp support delivered by trained crews — keeping every turnaround safe, compliant and on time, on the apron.</p>
+            <a href="Airside%20Services.dc.html" style="color:var(--color-accent-300);text-decoration:none;font-size:14px;font-family:var(--font-heading);display:inline-flex;align-items:center;gap:6px;margin-top:4px">Learn more <i class="ph ph-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FLEET SHOWCASE ═══ -->
+  <section id="fleet" style="scroll-margin-top:84px;padding:clamp(56px,8vw,104px) 0;border-top:1px solid var(--color-divider)">
+    <div style="max-width:1180px;margin:0 auto;padding:0 clamp(18px,5vw,72px)">
+      <span style="display:block;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent);font-family:var(--font-heading)">Our fleet</span>
+      <h2 style="font-family:var(--font-heading);font-weight:500;font-size:clamp(30px,4vw,46px);line-height:1.08;letter-spacing:-0.02em;margin:14px 0 0;max-width:680px">The right aircraft for every mission profile</h2>
+
+      <div style="display:grid;grid-template-columns:260px 1fr;gap:clamp(24px,4vw,56px);margin-top:44px;align-items:start" data-fleet-grid>
+        <div style="display:flex;flex-direction:column;gap:8px" data-fleet-tabs>
+          <sc-for list="{{ fleetView }}" as="f" hint-placeholder-count="4">
+            <button type="button" onClick="{{ f.onSel }}" style="text-align:left;cursor:pointer;padding:16px 18px;border-radius:var(--radius-md);background:{{ f.tabBg }};border:1px solid {{ f.tabBorderBox }};border-left:3px solid {{ f.tabBorder }};display:flex;flex-direction:column;gap:3px;transition:background .2s">
+              <span style="font-family:var(--font-heading);font-weight:500;font-size:15.5px;color:{{ f.tabColor }}">{{ f.name }}</span>
+              <span style="font-size:12px;letter-spacing:0.05em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 50%,transparent)">{{ f.tag }}</span>
+            </button>
+          </sc-for>
+        </div>
+
+        <div>
+          <div style="position:relative;width:100%;aspect-ratio:16/9;border-radius:var(--radius-lg);overflow:hidden;background:var(--color-surface);box-shadow:var(--shadow-md)">
+            <sc-for list="{{ fleetView }}" as="f" hint-placeholder-count="4">
+              <div style="position:absolute;inset:0;transition:opacity .5s ease;opacity:{{ f.op }};pointer-events:{{ f.pe }}">
+                <image-slot id="{{ f.slotId }}" shape="rect" fit="cover" placeholder="{{ f.name }}" style="position:absolute;inset:0;width:100%;height:100%"></image-slot>
+              </div>
+            </sc-for>
+          </div>
+          <div style="margin-top:24px">
+            <h3 style="font-family:var(--font-heading);font-weight:500;font-size:24px;margin:0">{{ fleetSel.name }}</h3>
+            <p style="font-size:15px;line-height:1.65;color:color-mix(in srgb,var(--color-text) 80%,transparent);margin:12px 0 0;max-width:60ch">{{ fleetSel.desc }}</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;margin-top:24px;background:var(--color-divider);border-radius:var(--radius-md);overflow:hidden">
+              <sc-for list="{{ fleetSel.specs }}" as="s" hint-placeholder-count="4">
+                <div style="background:var(--color-surface);padding:16px 18px">
+                  <p style="font-size:11.5px;letter-spacing:0.07em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 55%,transparent);margin:0">{{ s.label }}</p>
+                  <p style="font-size:15px;font-family:var(--font-heading);font-weight:500;color:var(--color-text);margin:6px 0 0">{{ s.value }}</p>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SAFETY / WHY US ═══ -->
+  <section id="safety" style="scroll-margin-top:84px;padding:clamp(56px,8vw,104px) 0;background:linear-gradient(180deg, transparent, color-mix(in srgb,var(--color-section) 22%,transparent))">
+    <div style="max-width:1180px;margin:0 auto;padding:0 clamp(18px,5vw,72px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(32px,5vw,72px);align-items:start" data-safety-grid>
+      <div>
+        <span style="display:block;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent);font-family:var(--font-heading)">Why choose us</span>
+        <h2 style="font-family:var(--font-heading);font-weight:500;font-size:clamp(30px,4vw,46px);line-height:1.1;letter-spacing:-0.02em;margin:16px 0 0">Safety is our highest priority</h2>
+        <p style="font-size:16px;line-height:1.65;color:color-mix(in srgb,var(--color-text) 80%,transparent);margin:20px 0 0;max-width:48ch">Through strict compliance with international aviation standards and cutting-edge technology, every flight is conducted with meticulous care. As Ghana's aviation sector grows, Century Aviation is setting new standards for safety, efficiency and innovation.</p>
+        <a href="#contact" class="btn btn-primary" style="margin-top:28px;font-size:14px;padding:13px 22px;background:#353b80;border-color:#353b80;color:var(--color-neutral-100)">Partner with us <i class="ph ph-arrow-up-right"></i></a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px" data-safety-cards>
+        <div style="background:var(--color-surface);border-radius:var(--radius-md);padding:22px;box-shadow:var(--shadow-sm)"><i class="ph ph-shield-check" style="font-size:26px;color:var(--color-accent)"></i><h4 style="font-family:var(--font-heading);font-weight:500;font-size:17px;margin:14px 0 6px">Certified compliance</h4><p style="font-size:13.5px;line-height:1.55;color:color-mix(in srgb,var(--color-text) 72%,transparent);margin:0">Operations aligned with international civil aviation regulations and rigorous internal SMS.</p></div>
+        <div style="background:var(--color-surface);border-radius:var(--radius-md);padding:22px;box-shadow:var(--shadow-sm)"><i class="ph ph-users-three" style="font-size:26px;color:var(--color-accent)"></i><h4 style="font-family:var(--font-heading);font-weight:500;font-size:17px;margin:14px 0 6px">Experienced crews</h4><p style="font-size:13.5px;line-height:1.55;color:color-mix(in srgb,var(--color-text) 72%,transparent);margin:0">Seasoned pilots and engineers with deep offshore and regional operating experience.</p></div>
+        <div style="background:var(--color-surface);border-radius:var(--radius-md);padding:22px;box-shadow:var(--shadow-sm)"><i class="ph ph-clock-countdown" style="font-size:26px;color:var(--color-accent)"></i><h4 style="font-family:var(--font-heading);font-weight:500;font-size:17px;margin:14px 0 6px">24/7 readiness</h4><p style="font-size:13.5px;line-height:1.55;color:color-mix(in srgb,var(--color-text) 72%,transparent);margin:0">Round-the-clock dispatch and support, ready to respond when your operation demands it.</p></div>
+        <div style="background:var(--color-surface);border-radius:var(--radius-md);padding:22px;box-shadow:var(--shadow-sm)"><i class="ph ph-map-pin-area" style="font-size:26px;color:var(--color-accent)"></i><h4 style="font-family:var(--font-heading);font-weight:500;font-size:17px;margin:14px 0 6px">Local content</h4><p style="font-size:13.5px;line-height:1.55;color:color-mix(in srgb,var(--color-text) 72%,transparent);margin:0">A committed Ghanaian company investing in local talent, jobs and capability.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CLIENTS ═══ -->
+  <section style="padding:clamp(48px,6vw,80px) 0;border-top:1px solid var(--color-divider)">
+    <div style="max-width:1180px;margin:0 auto;padding:0 clamp(18px,5vw,72px)">
+      <p style="text-align:center;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 58%,transparent);margin:0">Trusted across Ghana's energy &amp; corporate sectors</p>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:32px" data-clients>
+        <div style="height:64px;border-radius:var(--radius-md);overflow:hidden;background:color-mix(in srgb,var(--color-surface) 60%,transparent);filter:grayscale(1);opacity:.85"><image-slot id="client-1" shape="rect" fit="contain" placeholder="Partner logo" style="width:100%;height:100%"></image-slot></div>
+        <div style="height:64px;border-radius:var(--radius-md);overflow:hidden;background:color-mix(in srgb,var(--color-surface) 60%,transparent);filter:grayscale(1);opacity:.85"><image-slot id="client-2" shape="rect" fit="contain" placeholder="Partner logo" style="width:100%;height:100%"></image-slot></div>
+        <div style="height:64px;border-radius:var(--radius-md);overflow:hidden;background:color-mix(in srgb,var(--color-surface) 60%,transparent);filter:grayscale(1);opacity:.85"><image-slot id="client-3" shape="rect" fit="contain" placeholder="Partner logo" style="width:100%;height:100%"></image-slot></div>
+        <div style="height:64px;border-radius:var(--radius-md);overflow:hidden;background:color-mix(in srgb,var(--color-surface) 60%,transparent);filter:grayscale(1);opacity:.85"><image-slot id="client-4" shape="rect" fit="contain" placeholder="Partner logo" style="width:100%;height:100%"></image-slot></div>
+        <div style="height:64px;border-radius:var(--radius-md);overflow:hidden;background:color-mix(in srgb,var(--color-surface) 60%,transparent);filter:grayscale(1);opacity:.85"><image-slot id="client-5" shape="rect" fit="contain" placeholder="Partner logo" style="width:100%;height:100%"></image-slot></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TESTIMONIALS ═══ -->
+  <section style="padding:clamp(56px,8vw,104px) 0">
+    <div style="max-width:920px;margin:0 auto;padding:0 clamp(18px,5vw,72px);text-align:center">
+      <span style="display:block;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent);font-family:var(--font-heading)">In their words</span>
+      <i class="ph ph-quotes" style="font-size:40px;color:color-mix(in srgb,var(--color-accent) 55%,transparent);margin-top:20px;display:block"></i>
+      <blockquote style="font-family:var(--font-heading);font-weight:500;font-size:clamp(22px,2.8vw,32px);line-height:1.38;letter-spacing:-0.01em;margin:20px auto 0;max-width:22ch;max-width:760px;min-height:3.6em;transition:opacity .3s">{{ testSel.quote }}</blockquote>
+      <p style="margin:26px 0 0;font-family:var(--font-heading);font-weight:500;font-size:16px;color:var(--color-text)">{{ testSel.name }}</p>
+      <p style="margin:4px 0 0;font-size:13.5px;color:color-mix(in srgb,var(--color-text) 60%,transparent)">{{ testSel.role }}</p>
+      <div style="display:flex;gap:14px;justify-content:center;align-items:center;margin-top:32px">
+        <button type="button" onClick="{{ testPrev }}" aria-label="Previous" style="width:42px;height:42px;border-radius:50%;background:transparent;border:1px solid var(--color-divider);color:var(--color-text);cursor:pointer;font-size:18px;display:inline-flex;align-items:center;justify-content:center" style-hover="border-color:var(--color-accent);color:var(--color-accent)"><i class="ph ph-arrow-left"></i></button>
+        <div style="display:flex;gap:8px">
+          <button type="button" onClick="{{ setTest0 }}" aria-label="Testimonial 1" style="width:9px;height:9px;border-radius:50%;border:0;cursor:pointer;transition:background .3s;background:{{ tdot0 }}"></button>
+          <button type="button" onClick="{{ setTest1 }}" aria-label="Testimonial 2" style="width:9px;height:9px;border-radius:50%;border:0;cursor:pointer;transition:background .3s;background:{{ tdot1 }}"></button>
+          <button type="button" onClick="{{ setTest2 }}" aria-label="Testimonial 3" style="width:9px;height:9px;border-radius:50%;border:0;cursor:pointer;transition:background .3s;background:{{ tdot2 }}"></button>
+        </div>
+        <button type="button" onClick="{{ testNext }}" aria-label="Next" style="width:42px;height:42px;border-radius:50%;background:transparent;border:1px solid var(--color-divider);color:var(--color-text);cursor:pointer;font-size:18px;display:inline-flex;align-items:center;justify-content:center" style-hover="border-color:var(--color-accent);color:var(--color-accent)"><i class="ph ph-arrow-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT ═══ -->
+  <section id="contact" style="scroll-margin-top:84px;padding:clamp(56px,8vw,104px) 0;background:radial-gradient(900px 500px at 90% 0%, color-mix(in srgb,var(--color-accent-900) 55%,transparent), transparent 60%)">
+    <div style="max-width:1180px;margin:0 auto;padding:0 clamp(18px,5vw,72px);display:grid;grid-template-columns:minmax(0,0.85fr) minmax(0,1.15fr);gap:clamp(28px,4vw,56px);align-items:start" data-contact-grid>
+      <div>
+        <span style="display:block;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent);font-family:var(--font-heading)">Get in touch</span>
+        <h2 style="font-family:var(--font-heading);font-weight:500;font-size:clamp(30px,4vw,44px);line-height:1.1;letter-spacing:-0.02em;margin:14px 0 0">Let's plan your next flight</h2>
+        <p style="font-size:15.5px;line-height:1.6;color:color-mix(in srgb,var(--color-text) 78%,transparent);margin:18px 0 0;max-width:44ch">Reach out and our team will respond promptly to discuss your aviation requirements with excellence and professionalism.</p>
+        <div style="display:flex;flex-direction:column;gap:14px;margin-top:34px">
+          <a href="tel:0303930658" style="display:flex;align-items:center;gap:16px;padding:18px;border-radius:var(--radius-md);background:var(--color-surface);box-shadow:var(--shadow-sm);text-decoration:none;color:var(--color-text)" style-hover="box-shadow:var(--shadow-md)"><i class="ph ph-phone" style="font-size:22px;color:var(--color-accent)"></i><span><span style="display:block;font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 55%,transparent)">Call us today</span><span style="display:block;font-family:var(--font-heading);font-weight:500;font-size:16px;margin-top:2px">0303 930 658</span></span></a>
+          <a href="mailto:info@centuryaviationgh.com" style="display:flex;align-items:center;gap:16px;padding:18px;border-radius:var(--radius-md);background:var(--color-surface);box-shadow:var(--shadow-sm);text-decoration:none;color:var(--color-text)" style-hover="box-shadow:var(--shadow-md)"><i class="ph ph-envelope-simple" style="font-size:22px;color:var(--color-accent)"></i><span><span style="display:block;font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 55%,transparent)">Send a message</span><span style="display:block;font-family:var(--font-heading);font-weight:500;font-size:16px;margin-top:2px">info@centuryaviationgh.com</span></span></a>
+          <div style="display:flex;align-items:center;gap:16px;padding:18px;border-radius:var(--radius-md);background:var(--color-surface);box-shadow:var(--shadow-sm)"><i class="ph ph-map-pin" style="font-size:22px;color:var(--color-accent)"></i><span><span style="display:block;font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 55%,transparent)">Location</span><span style="display:block;font-family:var(--font-heading);font-weight:500;font-size:15px;margin-top:2px">No 8, Odoi Kwao Street, Airport Residential Area, Accra</span></span></div>
+        </div>
+      </div>
+
+      <div style="background:var(--color-surface);border-radius:var(--radius-lg);padding:clamp(24px,3vw,38px);box-shadow:var(--shadow-md)">
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div style="text-align:center;padding:40px 12px">
+            <i class="ph ph-check-circle" style="font-size:56px;color:var(--color-accent)"></i>
+            <h3 style="font-family:var(--font-heading);font-weight:500;font-size:24px;margin:18px 0 0">Message sent</h3>
+            <p style="font-size:15px;line-height:1.6;color:color-mix(in srgb,var(--color-text) 75%,transparent);margin:12px auto 0;max-width:38ch">Thank you for reaching out to Century Aviation. Our team will be in touch shortly.</p>
+            <button type="button" onClick="{{ resetForm }}" class="btn btn-secondary" style="margin-top:24px;font-size:14px;padding:11px 20px">Send another message</button>
+          </div>
+        </sc-if>
+        <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <div>
+            <h3 style="font-family:var(--font-heading);font-weight:500;font-size:22px;margin:0 0 6px">Request a quote</h3>
+            <p style="font-size:14px;color:color-mix(in srgb,var(--color-text) 68%,transparent);margin:0 0 22px">Fields marked with an asterisk are required.</p>
+            <form onSubmit="{{ submit }}" novalidate="true">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px" data-form-row>
+                <div class="field">
+                  <label>Your name *</label>
+                  <input class="input" type="text" value="{{ form.name }}" onChange="{{ hName }}" placeholder="Full name" />
+                  <sc-if value="{{ errors.name }}" hint-placeholder-val="{{ false }}"><p style="color:var(--color-accent-300);font-size:12px;margin:6px 0 0">{{ errors.name }}</p></sc-if>
+                </div>
+                <div class="field">
+                  <label>Phone number</label>
+                  <input class="input" type="tel" value="{{ form.phone }}" onChange="{{ hPhone }}" placeholder="Enter phone number" />
+                </div>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px" data-form-row>
+                <div class="field">
+                  <label>Email address *</label>
+                  <input class="input" type="email" value="{{ form.email }}" onChange="{{ hEmail }}" placeholder="you@example.com" />
+                  <sc-if value="{{ errors.email }}" hint-placeholder-val="{{ false }}"><p style="color:var(--color-accent-300);font-size:12px;margin:6px 0 0">{{ errors.email }}</p></sc-if>
+                </div>
+                <div class="field">
+                  <label>Service of interest</label>
+                  <select class="input" value="{{ form.service }}" onChange="{{ hService }}" style="cursor:pointer">
+                    <option>Helicopter Support</option>
+                    <option>Aircraft Charter</option>
+                    <option>Airside Services</option>
+                    <option>General enquiry</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field" style="margin-top:16px">
+                <label>Your message *</label>
+                <textarea class="input" value="{{ form.message }}" onChange="{{ hMessage }}" placeholder="Tell us about your requirement, dates and destinations." style="min-height:120px"></textarea>
+                <sc-if value="{{ errors.message }}" hint-placeholder-val="{{ false }}"><p style="color:var(--color-accent-300);font-size:12px;margin:6px 0 0">{{ errors.message }}</p></sc-if>
+              </div>
+              <label style="display:flex;align-items:flex-start;gap:10px;margin-top:18px;cursor:pointer;font-size:13.5px;color:color-mix(in srgb,var(--color-text) 78%,transparent)">
+                <input type="checkbox" checked="{{ form.consent }}" onChange="{{ hConsent }}" style="width:17px;height:17px;margin-top:1px;accent-color:var(--color-accent);flex:none" />
+                <span>I agree to be contacted by Century Aviation regarding my enquiry.</span>
+              </label>
+              <sc-if value="{{ errors.consent }}" hint-placeholder-val="{{ false }}"><p style="color:var(--color-accent-300);font-size:12px;margin:6px 0 0">{{ errors.consent }}</p></sc-if>
+              <button type="submit" class="btn btn-primary btn-block" style="margin-top:22px;font-size:14.5px;padding:14px;background:var(--color-accent);color:var(--color-bg);border-color:var(--color-accent)">Send message <i class="ph ph-paper-plane-tilt"></i></button>
+            </form>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer style="border-top:1px solid var(--color-divider);padding:clamp(48px,6vw,72px) 0 0;background:#353b80">
+    <div style="max-width:1180px;margin:0 auto;padding:0 clamp(18px,5vw,72px);display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px" data-footer-grid>
+      <div>
+        <img src="uploads/logo-1784389045205.png" alt="Century Aviation Ghana" style="height:46px;width:auto;filter:brightness(0) invert(1)" />
+        <p style="font-size:13.5px;line-height:1.6;color:color-mix(in srgb,var(--color-text) 62%,transparent);margin:18px 0 0;max-width:34ch">A reliable partner and vital supplier of aviation services to Ghana's energy sector and beyond, for more than 14 years.</p>
+      </div>
+      <div>
+        <h6 style="color:var(--color-text);margin:0 0 14px">Company</h6>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="Century%20Story.dc.html" style="color:color-mix(in srgb,var(--color-text) 68%,transparent);text-decoration:none;font-size:14px" style-hover="color:var(--color-accent)">Our story</a>
+          <a href="Mission%20and%20Vision.dc.html" style="color:color-mix(in srgb,var(--color-text) 68%,transparent);text-decoration:none;font-size:14px" style-hover="color:var(--color-accent)">Mission &amp; vision</a>
+          <a href="#safety" style="color:color-mix(in srgb,var(--color-text) 68%,transparent);text-decoration:none;font-size:14px" style-hover="color:var(--color-accent)">Local content</a>
+          <a href="#contact" style="color:color-mix(in srgb,var(--color-text) 68%,transparent);text-decoration:none;font-size:14px" style-hover="color:var(--color-accent)">Contact us</a>
+        </div>
+      </div>
+      <div>
+        <h6 style="color:var(--color-text);margin:0 0 14px">Services</h6>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="Helicopter%20Support.dc.html" style="color:color-mix(in srgb,var(--color-text) 68%,transparent);text-decoration:none;font-size:14px" style-hover="color:var(--color-accent)">Helicopter Support</a>
+          <a href="Aircraft%20Charter%20Services.dc.html" style="color:color-mix(in srgb,var(--color-text) 68%,transparent);text-decoration:none;font-size:14px" style-hover="color:var(--color-accent)">Aircraft Charter</a>
+          <a href="Airside%20Services.dc.html" style="color:color-mix(in srgb,var(--color-text) 68%,transparent);text-decoration:none;font-size:14px" style-hover="color:var(--color-accent)">Airside Services</a>
+          <a href="#fleet" style="color:color-mix(in srgb,var(--color-text) 68%,transparent);text-decoration:none;font-size:14px" style-hover="color:var(--color-accent)">Our fleet</a>
+        </div>
+      </div>
+      <div>
+        <h6 style="color:var(--color-text);margin:0 0 14px">Get in touch</h6>
+        <div style="display:flex;flex-direction:column;gap:12px;font-size:14px;color:color-mix(in srgb,var(--color-text) 68%,transparent)">
+          <span style="display:flex;gap:10px;align-items:flex-start"><i class="ph ph-map-pin" style="color:var(--color-accent);font-size:18px;flex:none;margin-top:1px"></i> No 8, Odoi Kwao Street, Airport Residential Area, Accra</span>
+          <a href="mailto:info@centuryaviationgh.com" style="display:flex;gap:10px;align-items:center;color:color-mix(in srgb,var(--color-text) 68%,transparent);text-decoration:none" style-hover="color:var(--color-accent)"><i class="ph ph-envelope-simple" style="color:var(--color-accent);font-size:18px"></i> info@centuryaviationgh.com</a>
+          <a href="tel:0303930658" style="display:flex;gap:10px;align-items:center;color:color-mix(in srgb,var(--color-text) 68%,transparent);text-decoration:none" style-hover="color:var(--color-accent)"><i class="ph ph-phone" style="color:var(--color-accent);font-size:18px"></i> 0303 930 658</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--color-divider);margin-top:clamp(40px,5vw,60px)">
+      <div style="max-width:1180px;margin:0 auto;padding:22px clamp(18px,5vw,72px);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:color-mix(in srgb,var(--color-text) 50%,transparent)">
+        <span>© 2026 Century Aviation Ghana Ltd. All rights reserved.</span>
+        <span>Excellence · Safety · Professionalism</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900},&quot;autoplay&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;heroInterval&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:6,&quot;min&quot;:3,&quot;max&quot;:12,&quot;step&quot;:1,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Hero&quot;}}">
+class Component extends DCLogic {
+  state = {
+    hero: 0, fleet: 0, test: 0, menu: false, isMobile: false,
+    form: { name: '', email: '', phone: '', service: 'Helicopter Support', message: '', consent: false },
+    errors: {}, sent: false, openDrop: null, searchOpen: false,
+  };
+
+  setDrop = (v) => this.setState({ openDrop: v });
+  toggleSearch = () => this.setState(s => ({ searchOpen: !s.searchOpen }));
+
+  get autoplay() { return this.props.autoplay ?? true; }
+  get interval() { return (this.props.heroInterval ?? 6) * 1000; }
+
+  componentDidMount() {
+    this.startTimer();
+    if (window.location.hash) {
+      const id = decodeURIComponent(window.location.hash.slice(1));
+      let tries = 0;
+      const jump = () => {
+        const el = document.getElementById(id);
+        if (el) {
+          const y = el.getBoundingClientRect().top + window.pageYOffset - 76;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        } else if (tries++ < 20) {
+          setTimeout(jump, 150);
+        }
+      };
+      setTimeout(jump, 300);
+    }
+    this.mq = window.matchMedia('(max-width: 820px)');
+    this.setState({ isMobile: this.mq.matches });
+    this._mqh = (e) => this.setState({ isMobile: e.matches, menu: false });
+    this.mq.addEventListener('change', this._mqh);
+  }
+  componentWillUnmount() {
+    clearInterval(this.timer);
+    if (this.mq) this.mq.removeEventListener('change', this._mqh);
+  }
+  startTimer() {
+    clearInterval(this.timer);
+    if (this.autoplay) this.timer = setInterval(() => this.setState(s => ({ hero: (s.hero + 1) % 3 })), this.interval);
+  }
+
+  setHero = (i) => { this.setState({ hero: i }); this.startTimer(); };
+  heroNext = () => this.setHero((this.state.hero + 1) % 3);
+  heroPrev = () => this.setHero((this.state.hero + 2) % 3);
+
+  setFleet = (i) => this.setState({ fleet: i });
+
+  setTest = (i) => this.setState({ test: i });
+  testNext = () => this.setState(s => ({ test: (s.test + 1) % this.testData.length }));
+  testPrev = () => this.setState(s => ({ test: (s.test + this.testData.length - 1) % this.testData.length }));
+
+  toggleMenu = () => this.setState(s => ({ menu: !s.menu }));
+  closeMenu = () => this.setState({ menu: false });
+
+  upd(k, v) { this.setState(s => ({ form: { ...s.form, [k]: v }, errors: { ...s.errors, [k]: '' } })); }
+
+  submit = (e) => {
+    e.preventDefault();
+    const f = this.state.form; const errs = {};
+    if (!f.name.trim()) errs.name = 'Please enter your name.';
+    if (!f.email.trim()) errs.email = 'Please enter your email.';
+    else if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email)) errs.email = 'Enter a valid email address.';
+    if (!f.message.trim()) errs.message = 'Tell us briefly what you need.';
+    if (!f.consent) errs.consent = 'Please accept before sending.';
+    if (Object.keys(errs).length) { this.setState({ errors: errs }); return; }
+    this.setState({ sent: true });
+  };
+  resetForm = () => this.setState({ sent: false, errors: {}, form: { name: '', email: '', phone: '', service: 'Helicopter Support', message: '', consent: false } });
+
+  get fleetData() {
+    return [
+      { id: 'offshore', name: 'Twin-Engine Offshore Helicopter', tag: 'Rotary · Energy',
+        desc: 'Our workhorse for offshore crew change and mission-critical logistics — an IFR-capable, twin-engine helicopter built for all-weather operations between shore and platform.',
+        specs: [{ label: 'Configuration', value: 'Up to 19 pax' }, { label: 'Mission', value: 'Offshore transfers' }, { label: 'Capability', value: 'IFR · all-weather' }, { label: 'Coverage', value: 'Onshore & offshore' }] },
+      { id: 'utility', name: 'Light Utility Helicopter', tag: 'Rotary · Utility',
+        desc: 'A versatile light helicopter for material transport, rapid survey and medevac — nimble, cost-efficient and strong in hot-and-high conditions.',
+        specs: [{ label: 'Configuration', value: 'Up to 5 pax' }, { label: 'Mission', value: 'Survey · medevac' }, { label: 'Capability', value: 'Hot-and-high' }, { label: 'Coverage', value: 'Nationwide' }] },
+      { id: 'jet', name: 'Executive Jet Charter', tag: 'Fixed-wing · Charter',
+        desc: 'A midsize business jet for executives, government and corporate travel — a stand-up cabin, discreet service and the range for intercontinental legs.',
+        specs: [{ label: 'Configuration', value: '8–9 pax' }, { label: 'Mission', value: 'Executive travel' }, { label: 'Cabin', value: 'Stand-up' }, { label: 'Range', value: 'Intercontinental' }] },
+    ];
+  }
+
+  get testData() {
+    return [
+      { quote: '“Century has been a dependable partner for our offshore operations — flights run on schedule and safety is never compromised.”', name: 'Operations Lead', role: 'Offshore energy operator' },
+      { quote: '“From first call to landing, the charter experience was seamless, professional and genuinely discreet.”', name: 'Corporate Client', role: 'Executive travel' },
+      { quote: '“Their ground and dispatch teams are responsive around the clock. It gives our logistics real peace of mind.”', name: 'Logistics Manager', role: 'Oil & gas services' },
+    ];
+  }
+
+  renderVals() {
+    const { hero, fleet, test, menu, isMobile, form, errors, sent, openDrop, searchOpen } = this.state;
+    const dot = (i) => i === hero ? 'var(--color-accent)' : 'color-mix(in srgb, var(--color-neutral-100) 35%, transparent)';
+    const tdot = (i) => i === test ? 'var(--color-accent)' : 'color-mix(in srgb, var(--color-text) 28%, transparent)';
+
+    const fleetView = this.fleetData.map((f, i) => ({
+      ...f, slotId: 'fleet-' + f.id, op: i === fleet ? 1 : 0, pe: i === fleet ? 'auto' : 'none',
+      tabColor: i === fleet ? 'var(--color-text)' : 'color-mix(in srgb, var(--color-text) 62%, transparent)',
+      tabBorder: i === fleet ? 'var(--color-accent)' : 'transparent',
+      tabBorderBox: i === fleet ? 'var(--color-divider)' : 'transparent',
+      tabBg: i === fleet ? 'color-mix(in srgb, var(--color-accent) 10%, transparent)' : 'transparent',
+      onSel: () => this.setFleet(i),
+    }));
+
+    this._h = this._h || {
+      name: (e) => this.upd('name', e.target.value),
+      email: (e) => this.upd('email', e.target.value),
+      phone: (e) => this.upd('phone', e.target.value),
+      service: (e) => this.upd('service', e.target.value),
+      message: (e) => this.upd('message', e.target.value),
+      consent: (e) => this.upd('consent', e.target.checked),
+    };
+
+    return {
+      desktopNav: !isMobile, mobileNav: isMobile, menu,
+      toggleMenu: this.toggleMenu, closeMenu: this.closeMenu,
+      aboutOpen: openDrop === 'about', servicesOpen: openDrop === 'services',
+      hoverAbout: () => this.setDrop('about'), hoverServices: () => this.setDrop('services'), leaveDrop: () => this.setDrop(null),
+      searchOpen, toggleSearch: this.toggleSearch,
+      heroOp0: hero === 0 ? 1 : 0, heroOp1: hero === 1 ? 1 : 0, heroOp2: hero === 2 ? 1 : 0,
+      heroPe0: hero === 0 ? 'auto' : 'none', heroPe1: hero === 1 ? 'auto' : 'none', heroPe2: hero === 2 ? 'auto' : 'none',
+      dot0: dot(0), dot1: dot(1), dot2: dot(2),
+      heroNext: this.heroNext, heroPrev: this.heroPrev,
+      setHero0: () => this.setHero(0), setHero1: () => this.setHero(1), setHero2: () => this.setHero(2),
+      fleetView, fleetSel: fleetView[fleet],
+      testSel: this.testData[test],
+      tdot0: tdot(0), tdot1: tdot(1), tdot2: tdot(2),
+      testNext: this.testNext, testPrev: this.testPrev,
+      setTest0: () => this.setTest(0), setTest1: () => this.setTest(1), setTest2: () => this.setTest(2),
+      form, errors, sent, notSent: !sent,
+      hName: this._h.name, hEmail: this._h.email, hPhone: this._h.phone,
+      hService: this._h.service, hMessage: this._h.message, hConsent: this._h.consent,
+      submit: this.submit, resetForm: this.resetForm,
+    };
+  }
+}
+</script>
+</body>
+</html>
