@@ -15,7 +15,7 @@
 <style>
   html { scroll-behavior: smooth; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-  body { margin: 0; }
+  body { margin: 0; -webkit-overflow-scrolling: touch; overscroll-behavior-y: none; }
   /* responsive collapse only — all base styling stays inline */
   @media (max-width: 860px) {
     [data-fleet-grid] { grid-template-columns: 1fr !important; }
@@ -26,6 +26,7 @@
   }
   @media (max-width: 820px) {
     [data-hero-arrow] { display: none !important; }
+    [data-hero-eyebrow] { color: #353b80 !important; }
   }
   @media (max-width: 640px) {
     [data-stats] { grid-template-columns: 1fr 1fr !important; }
@@ -123,7 +124,7 @@
       <div style="position:absolute;inset:0;display:flex;align-items:center">
         <div style="max-width:1180px;margin:0 auto;padding:0 clamp(18px,5vw,72px);width:100%">
           <div style="max-width:660px">
-            <span style="display:inline-flex;align-items:center;gap:9px;font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent-300);font-family:var(--font-heading)"><i class="ph ph-airplane-tilt"></i> Helicopter &amp; fixed-wing aviation · Ghana</span>
+            <span data-hero-eyebrow style="display:inline-flex;align-items:center;gap:9px;font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent-300);font-family:var(--font-heading)"><i class="ph ph-airplane-tilt"></i> Helicopter &amp; fixed-wing aviation · Ghana</span>
             <h1 style="font-family:var(--font-heading);font-weight:500;font-size:clamp(42px,6.2vw,84px);line-height:1.04;letter-spacing:-0.02em;margin:20px 0 0;color:var(--color-neutral-100)">Soaring beyond boundaries</h1>
             <p style="font-size:clamp(16px,1.6vw,19px);line-height:1.6;color:color-mix(in srgb,var(--color-neutral-100) 90%,transparent);margin:22px 0 0;max-width:520px">Ghana's trusted partner for helicopter support and executive charter — connecting the energy sector, industry and travellers with precision and an uncompromising safety culture.</p>
             <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:34px">
@@ -141,7 +142,7 @@
       <div style="position:absolute;inset:0;display:flex;align-items:center">
         <div style="max-width:1180px;margin:0 auto;padding:0 clamp(18px,5vw,72px);width:100%">
           <div style="max-width:660px">
-            <span style="display:inline-flex;align-items:center;gap:9px;font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent-300);font-family:var(--font-heading)"><i class="ph ph-helicopter"></i> Offshore &amp; onshore support</span>
+            <span data-hero-eyebrow style="display:inline-flex;align-items:center;gap:9px;font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent-300);font-family:var(--font-heading)"><i class="ph ph-helicopter"></i> Offshore &amp; onshore support</span>
             <h1 style="font-family:var(--font-heading);font-weight:500;font-size:clamp(42px,6.2vw,84px);line-height:1.04;letter-spacing:-0.02em;margin:20px 0 0;color:var(--color-neutral-100)">Built for the offshore mission</h1>
             <p style="font-size:clamp(16px,1.6vw,19px);line-height:1.6;color:color-mix(in srgb,var(--color-neutral-100) 90%,transparent);margin:22px 0 0;max-width:520px">Reliable rotary-wing support bridging shore and sea — vital connectors to offshore platforms, on schedule and to the highest international safety standard.</p>
             <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:34px">
@@ -159,7 +160,7 @@
       <div style="position:absolute;inset:0;display:flex;align-items:center">
         <div style="max-width:1180px;margin:0 auto;padding:0 clamp(18px,5vw,72px);width:100%">
           <div style="max-width:660px">
-            <span style="display:inline-flex;align-items:center;gap:9px;font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent-300);font-family:var(--font-heading)"><i class="ph ph-airplane-in-flight"></i> Executive &amp; private charter</span>
+            <span data-hero-eyebrow style="display:inline-flex;align-items:center;gap:9px;font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent-300);font-family:var(--font-heading)"><i class="ph ph-airplane-in-flight"></i> Executive &amp; private charter</span>
             <h1 style="font-family:var(--font-heading);font-weight:500;font-size:clamp(42px,6.2vw,84px);line-height:1.04;letter-spacing:-0.02em;margin:20px 0 0;color:var(--color-neutral-100)">Charter on your terms</h1>
             <p style="font-size:clamp(16px,1.6vw,19px);line-height:1.6;color:color-mix(in srgb,var(--color-neutral-100) 90%,transparent);margin:22px 0 0;max-width:520px">Private jet and turboprop charter with the discretion, comfort and precision your schedule demands — across Ghana, West Africa and beyond.</p>
             <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:34px">
