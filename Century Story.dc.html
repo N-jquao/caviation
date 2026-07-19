@@ -70,13 +70,28 @@
       </sc-if>
     </div>
     <sc-if value="{{ menu }}" hint-placeholder-val="{{ false }}">
-      <div style="border-top:1px solid var(--color-divider);padding:8px clamp(18px,5vw,72px) 18px;display:flex;flex-direction:column;gap:2px;background:color-mix(in srgb, var(--color-bg) 96%, transparent)">
+      <div style="border-top:1px solid var(--color-divider);padding:8px clamp(18px,5vw,72px) 20px;display:flex;flex-direction:column;gap:0;background:color-mix(in srgb, var(--color-bg) 96%, transparent)">
         <a href="Century%20Aviation.dc.html" onClick="{{ closeMenu }}" style="padding:12px 4px;color:var(--color-text);text-decoration:none;font-size:16px;font-family:var(--font-heading);border-bottom:1px solid var(--color-divider)">Home</a>
-        <a href="Century%20Story.dc.html" onClick="{{ closeMenu }}" style="padding:12px 4px;color:var(--color-accent);text-decoration:none;font-size:16px;font-family:var(--font-heading);border-bottom:1px solid var(--color-divider)">About Us</a>
-        <a href="Century%20Aviation.dc.html#services" onClick="{{ closeMenu }}" style="padding:12px 4px;color:var(--color-text);text-decoration:none;font-size:16px;font-family:var(--font-heading);border-bottom:1px solid var(--color-divider)">Century Services</a>
+        <button type="button" onClick="{{ toggleAbout }}" style="display:flex;align-items:center;justify-content:space-between;width:100%;padding:12px 4px;background:transparent;border:0;border-bottom:1px solid var(--color-divider);color:var(--color-text);font-size:16px;font-family:var(--font-heading);cursor:pointer;text-align:left">About Us <i class="ph ph-caret-down" style="font-size:14px;transition:transform .2s;transform:{{ aboutCaret }}"></i></button>
+        <sc-if value="{{ aboutOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;padding-left:6px">
+            <a href="Century%20Story.dc.html" onClick="{{ closeMenu }}" style="padding:11px 4px 11px 20px;color:color-mix(in srgb,var(--color-text) 78%,transparent);text-decoration:none;font-size:14.5px;font-family:var(--font-heading);border-bottom:1px solid color-mix(in srgb,var(--color-divider) 60%,transparent)">Century Story</a>
+            <a href="Mission%20and%20Vision.dc.html" onClick="{{ closeMenu }}" style="padding:11px 4px 11px 20px;color:color-mix(in srgb,var(--color-text) 78%,transparent);text-decoration:none;font-size:14.5px;font-family:var(--font-heading);border-bottom:1px solid color-mix(in srgb,var(--color-divider) 60%,transparent)">Mission &amp; Vision</a>
+            <a href="Century%20Leadership.dc.html" onClick="{{ closeMenu }}" style="padding:11px 4px 11px 20px;color:color-mix(in srgb,var(--color-text) 78%,transparent);text-decoration:none;font-size:14.5px;font-family:var(--font-heading);border-bottom:1px solid color-mix(in srgb,var(--color-divider) 60%,transparent)">Century Leadership</a>
+            <a href="Core%20Values.dc.html" onClick="{{ closeMenu }}" style="padding:11px 4px 11px 20px;color:color-mix(in srgb,var(--color-text) 78%,transparent);text-decoration:none;font-size:14.5px;font-family:var(--font-heading);border-bottom:1px solid color-mix(in srgb,var(--color-divider) 60%,transparent)">Core Values</a>
+          </div>
+        </sc-if>
+        <button type="button" onClick="{{ toggleServices }}" style="display:flex;align-items:center;justify-content:space-between;width:100%;padding:12px 4px;background:transparent;border:0;border-bottom:1px solid var(--color-divider);color:var(--color-text);font-size:16px;font-family:var(--font-heading);cursor:pointer;text-align:left">Century Services <i class="ph ph-caret-down" style="font-size:14px;transition:transform .2s;transform:{{ servicesCaret }}"></i></button>
+        <sc-if value="{{ servicesOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;padding-left:6px">
+            <a href="Helicopter%20Support.dc.html" onClick="{{ closeMenu }}" style="padding:11px 4px 11px 20px;color:color-mix(in srgb,var(--color-text) 78%,transparent);text-decoration:none;font-size:14.5px;font-family:var(--font-heading);border-bottom:1px solid color-mix(in srgb,var(--color-divider) 60%,transparent)">Helicopter Support</a>
+            <a href="Aircraft%20Charter%20Services.dc.html" onClick="{{ closeMenu }}" style="padding:11px 4px 11px 20px;color:color-mix(in srgb,var(--color-text) 78%,transparent);text-decoration:none;font-size:14.5px;font-family:var(--font-heading);border-bottom:1px solid color-mix(in srgb,var(--color-divider) 60%,transparent)">Aircraft Charter Services</a>
+            <a href="Airside%20Services.dc.html" onClick="{{ closeMenu }}" style="padding:11px 4px 11px 20px;color:color-mix(in srgb,var(--color-text) 78%,transparent);text-decoration:none;font-size:14.5px;font-family:var(--font-heading);border-bottom:1px solid color-mix(in srgb,var(--color-divider) 60%,transparent)">Airside Services</a>
+          </div>
+        </sc-if>
         <a href="Local%20Content%20Commitment.dc.html" onClick="{{ closeMenu }}" style="padding:12px 4px;color:var(--color-text);text-decoration:none;font-size:16px;font-family:var(--font-heading);border-bottom:1px solid var(--color-divider)">Local Content Commitment</a>
-        <a href="Century%20Aviation.dc.html#contact" onClick="{{ closeMenu }}" style="padding:12px 4px;color:var(--color-text);text-decoration:none;font-size:16px;font-family:var(--font-heading)">Contact Us</a>
-        <a href="Century%20Aviation.dc.html#contact" onClick="{{ closeMenu }}" class="btn btn-primary" style="margin-top:10px;font-size:14px;padding:11px 16px">Request a Quote</a>
+        <a href="Century%20Aviation.dc.html#contact" onClick="{{ closeMenu }}" style="padding:12px 4px;color:var(--color-text);text-decoration:none;font-size:16px;font-family:var(--font-heading);border-bottom:1px solid var(--color-divider)">Contact Us</a>
+        <a href="Century%20Aviation.dc.html#contact" onClick="{{ closeMenu }}" class="btn btn-primary" style="margin-top:12px;font-size:14px;padding:11px 16px">Request a Quote</a>
       </div>
     </sc-if>
     <sc-if value="{{ searchOpen }}" hint-placeholder-val="{{ false }}">
@@ -211,7 +226,7 @@
         <div style="display:flex;flex-direction:column;gap:12px;font-size:14px;color:color-mix(in srgb,var(--color-text) 68%,transparent)">
           <span style="display:flex;gap:10px;align-items:flex-start"><i class="ph ph-map-pin" style="color:var(--color-accent);font-size:18px;flex:none;margin-top:1px"></i> No 8, Odoi Kwao Street, Airport Residential Area, Accra</span>
           <a href="mailto:info@centuryaviationgh.com" style="display:flex;gap:10px;align-items:center;color:color-mix(in srgb,var(--color-text) 68%,transparent);text-decoration:none" style-hover="color:var(--color-accent)"><i class="ph ph-envelope-simple" style="color:var(--color-accent);font-size:18px"></i> info@centuryaviationgh.com</a>
-          <a href="tel:0303930658" style="display:flex;gap:10px;align-items:center;color:color-mix(in srgb,var(--color-text) 68%,transparent);text-decoration:none" style-hover="color:var(--color-accent)"><i class="ph ph-phone" style="color:var(--color-accent);font-size:18px"></i> 0303 930 658</a>
+          <a href="tel:+233303930658" style="display:flex;gap:10px;align-items:center;color:color-mix(in srgb,var(--color-text) 68%,transparent);text-decoration:none" style-hover="color:var(--color-accent)"><i class="ph ph-phone" style="color:var(--color-accent);font-size:18px"></i> 0303 930 658</a>
         </div>
       </div>
     </div>
@@ -240,7 +255,7 @@ class Component extends DCLogic {
   setDrop = (v) => this.setState({ openDrop: v });
   toggleSearch = () => this.setState(s => ({ searchOpen: !s.searchOpen }));
   toggleMenu = () => this.setState(s => ({ menu: !s.menu }));
-  closeMenu = () => this.setState({ menu: false });
+  closeMenu = () => this.setState({ menu: false, openDrop: null });
 
   renderVals() {
     const { menu, isMobile, openDrop, searchOpen } = this.state;
@@ -249,6 +264,8 @@ class Component extends DCLogic {
       toggleMenu: this.toggleMenu, closeMenu: this.closeMenu,
       aboutOpen: openDrop === 'about', servicesOpen: openDrop === 'services',
       hoverAbout: () => this.setDrop('about'), hoverServices: () => this.setDrop('services'), leaveDrop: () => this.setDrop(null),
+      toggleAbout: () => this.setDrop(this.state.openDrop==='about'?null:'about'), toggleServices: () => this.setDrop(this.state.openDrop==='services'?null:'services'),
+      aboutCaret: this.state.openDrop==='about'?'rotate(180deg)':'rotate(0deg)', servicesCaret: this.state.openDrop==='services'?'rotate(180deg)':'rotate(0deg)',
       searchOpen, toggleSearch: this.toggleSearch,
     };
   }
