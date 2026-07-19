@@ -15,6 +15,7 @@
   html { scroll-behavior: smooth; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   body { margin: 0; -webkit-overflow-scrolling: touch; overscroll-behavior-y: none; }
+  image-slot, image-slot img, figure.lighten { touch-action: pan-y !important; }
   @media (max-width: 860px) {
     [data-split] { grid-template-columns: 1fr !important; }
     [data-footer-grid] { grid-template-columns: 1fr 1fr !important; }
@@ -30,7 +31,7 @@
   <header style="position:sticky;top:0;z-index:60;backdrop-filter:blur(16px);background:color-mix(in srgb, var(--color-bg) 80%, transparent);border-bottom:1px solid var(--color-divider)">
     <div style="max-width:1180px;margin:0 auto;padding:13px clamp(18px,5vw,72px);display:flex;align-items:center;gap:24px">
       <a href="Century%20Aviation.dc.html" style="display:flex;align-items:center;margin-right:auto;text-decoration:none;flex:none">
-        <img src="uploads/logo-white.png" alt="Century Aviation Ghana" style="height:58px;width:auto" />
+        <img src="uploads/logo-white.png" loading="eager" decoding="async" fetchpriority="high" alt="Century Aviation Ghana" style="height:58px;width:auto" />
       </a>
       <sc-if value="{{ desktopNav }}" hint-placeholder-val="{{ true }}">
         <nav style="display:flex;align-items:center;gap:28px">
@@ -132,7 +133,7 @@
   <footer style="border-top:1px solid var(--color-divider);padding:clamp(48px,6vw,72px) 0 0;background:#353b80">
     <div style="max-width:1180px;margin:0 auto;padding:0 clamp(18px,5vw,72px);display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px" data-footer-grid>
       <div>
-        <img src="uploads/logo-white.png" alt="Century Aviation Ghana" style="height:46px;width:auto" />
+        <img src="uploads/logo-white.png" loading="eager" decoding="async" fetchpriority="high" alt="Century Aviation Ghana" style="height:46px;width:auto" />
         <p style="font-size:13.5px;line-height:1.6;color:color-mix(in srgb,var(--color-text) 62%,transparent);margin:18px 0 0;max-width:34ch">A reliable partner and vital supplier of aviation services to Ghana's energy sector and beyond, for more than 14 years.</p>
       </div>
       <div>

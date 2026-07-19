@@ -11,11 +11,11 @@
 <link rel="stylesheet" href="_ds/nocturne-0c353d1b-6a46-40f6-b9c5-bad1c5a16f72/styles.css">
 <script src="_ds/nocturne-0c353d1b-6a46-40f6-b9c5-bad1c5a16f72/_ds_bundle.js"></script>
 <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
-<script src="./image-slot.js"></script>
 <style>
   html { scroll-behavior: smooth; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   body { margin: 0; -webkit-overflow-scrolling: touch; overscroll-behavior-y: none; }
+  image-slot, image-slot img, figure.lighten { touch-action: pan-y !important; }
   /* responsive collapse only — all base styling stays inline */
   @media (max-width: 860px) {
     [data-fleet-grid] { grid-template-columns: 1fr !important; }
@@ -42,7 +42,7 @@
   <header style="position:sticky;top:0;z-index:60;backdrop-filter:blur(16px);background:color-mix(in srgb, var(--color-bg) 80%, transparent);border-bottom:1px solid var(--color-divider)">
     <div style="max-width:1180px;margin:0 auto;padding:13px clamp(18px,5vw,72px);display:flex;align-items:center;gap:24px">
       <a href="#top" style="display:flex;align-items:center;margin-right:auto;text-decoration:none;flex:none">
-        <img src="uploads/logo-white.png" alt="Century Aviation Ghana" style="height:58px;width:auto" />
+        <img src="uploads/logo-white.png" loading="eager" decoding="async" fetchpriority="high" alt="Century Aviation Ghana" style="height:58px;width:auto" />
       </a>
       <sc-if value="{{ desktopNav }}" hint-placeholder-val="{{ true }}">
         <nav style="display:flex;align-items:center;gap:28px">
@@ -118,7 +118,7 @@
   <!-- ═══ HERO SLIDER ═══ -->
   <section style="position:relative;min-height:min(88vh,760px);display:flex;overflow:hidden">
     <div style="position:absolute;inset:0;transition:opacity 1.1s ease;opacity:{{ heroOp0 }};pointer-events:{{ heroPe0 }}">
-      <div style="position:absolute;inset:0"><image-slot id="hero-0" shape="rect" fit="cover" src="uploads/private-jets-opt.webp" placeholder="Private jet above the clouds" style="position:absolute;inset:0;width:100%;height:100%"></image-slot></div>
+      <div style="position:absolute;inset:0"><img src="uploads/private-jets-opt.webp" loading="eager" decoding="async" fetchpriority="high" alt="Private jet above the clouds" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block" /></div>
       <div style="position:absolute;inset:0;background:linear-gradient(180deg, color-mix(in srgb,var(--color-bg) 40%,transparent) 0%, color-mix(in srgb,var(--color-bg) 30%,transparent) 35%, color-mix(in srgb,var(--color-bg) 92%,transparent) 100%);pointer-events:none"></div>
       <div style="position:absolute;inset:0;background:linear-gradient(90deg, color-mix(in srgb,var(--color-bg) 78%,transparent) 0%, transparent 62%);pointer-events:none"></div>
       <div style="position:absolute;inset:0;display:flex;align-items:center">
@@ -136,7 +136,7 @@
       </div>
     </div>
     <div style="position:absolute;inset:0;transition:opacity 1.1s ease;opacity:{{ heroOp1 }};pointer-events:{{ heroPe1 }}">
-      <div style="position:absolute;inset:0"><image-slot id="hero-1" shape="rect" fit="cover" src="uploads/DSC01700-opt.webp" placeholder="Offshore helicopter on the pad" style="position:absolute;inset:0;width:100%;height:100%"></image-slot></div>
+      <div style="position:absolute;inset:0"><img src="uploads/DSC01700-opt.webp" loading="eager" decoding="async" fetchpriority="high" alt="Offshore helicopter on the pad" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block" /></div>
       <div style="position:absolute;inset:0;background:linear-gradient(180deg, color-mix(in srgb,var(--color-bg) 40%,transparent) 0%, color-mix(in srgb,var(--color-bg) 30%,transparent) 35%, color-mix(in srgb,var(--color-bg) 92%,transparent) 100%);pointer-events:none"></div>
       <div style="position:absolute;inset:0;background:linear-gradient(90deg, color-mix(in srgb,var(--color-bg) 78%,transparent) 0%, transparent 62%);pointer-events:none"></div>
       <div style="position:absolute;inset:0;display:flex;align-items:center">
@@ -154,7 +154,7 @@
       </div>
     </div>
     <div style="position:absolute;inset:0;transition:opacity 1.1s ease;opacity:{{ heroOp2 }};pointer-events:{{ heroPe2 }}">
-      <div style="position:absolute;inset:0"><image-slot id="hero-2" shape="rect" fit="cover" src="uploads/Cessna-Sky-Courier-opt.webp" placeholder="Executive jet at dusk" style="position:absolute;inset:0;width:100%;height:100%"></image-slot></div>
+      <div style="position:absolute;inset:0"><img src="uploads/Cessna-Sky-Courier-opt.webp" loading="eager" decoding="async" fetchpriority="high" alt="Executive jet at dusk" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block" /></div>
       <div style="position:absolute;inset:0;background:linear-gradient(180deg, color-mix(in srgb,var(--color-bg) 40%,transparent) 0%, color-mix(in srgb,var(--color-bg) 30%,transparent) 35%, color-mix(in srgb,var(--color-bg) 92%,transparent) 100%);pointer-events:none"></div>
       <div style="position:absolute;inset:0;background:linear-gradient(90deg, color-mix(in srgb,var(--color-bg) 78%,transparent) 0%, transparent 62%);pointer-events:none"></div>
       <div style="position:absolute;inset:0;display:flex;align-items:center">
@@ -202,7 +202,7 @@
 
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;margin-top:48px">
         <div style="position:relative;border-radius:var(--radius-lg);overflow:hidden;background:var(--color-surface);box-shadow:var(--shadow-md);display:flex;flex-direction:column" style-hover="box-shadow:var(--shadow-lg)">
-          <div style="position:relative;height:220px"><image-slot id="svc-heli" shape="rect" fit="cover" placeholder="Helicopter operations" style="position:absolute;inset:0;width:100%;height:100%"></image-slot><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%, color-mix(in srgb,var(--color-surface) 92%,transparent) 100%);pointer-events:none"></div><span class="tag tag-accent" style="position:absolute;top:14px;left:14px">Lead service</span></div>
+          <div style="position:relative;height:220px"><img src="uploads/slot-svc-heli.webp" loading="lazy" decoding="async" alt="Helicopter operations" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block" /><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%, color-mix(in srgb,var(--color-surface) 92%,transparent) 100%);pointer-events:none"></div><span class="tag tag-accent" style="position:absolute;top:14px;left:14px">Lead service</span></div>
           <div style="padding:24px 24px 26px;display:flex;flex-direction:column;gap:12px;flex:1">
             <div style="display:flex;align-items:center;gap:11px"><i class="ph ph-helicopter" style="font-size:24px;color:var(--color-accent)"></i><h3 style="font-family:var(--font-heading);font-weight:500;font-size:21px;margin:0">Helicopter Support</h3></div>
             <p style="font-size:14.5px;line-height:1.6;color:color-mix(in srgb,var(--color-text) 78%,transparent);margin:0;flex:1">The principal helicopter service supplier to the energy business — offshore crew transfers, medevac readiness and mission-critical logistics that keep the oil &amp; gas industry moving.</p>
@@ -210,7 +210,7 @@
           </div>
         </div>
         <div style="position:relative;border-radius:var(--radius-lg);overflow:hidden;background:var(--color-surface);box-shadow:var(--shadow-md);display:flex;flex-direction:column" style-hover="box-shadow:var(--shadow-lg)">
-          <div style="position:relative;height:220px"><image-slot id="svc-charter" shape="rect" fit="cover" placeholder="Executive jet charter" style="position:absolute;inset:0;width:100%;height:100%"></image-slot><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%, color-mix(in srgb,var(--color-surface) 92%,transparent) 100%);pointer-events:none"></div></div>
+          <div style="position:relative;height:220px"><img src="uploads/slot-svc-charter.webp" loading="lazy" decoding="async" alt="Executive jet charter" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block" /><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%, color-mix(in srgb,var(--color-surface) 92%,transparent) 100%);pointer-events:none"></div></div>
           <div style="padding:24px 24px 26px;display:flex;flex-direction:column;gap:12px;flex:1">
             <div style="display:flex;align-items:center;gap:11px"><i class="ph ph-airplane-in-flight" style="font-size:24px;color:var(--color-accent)"></i><h3 style="font-family:var(--font-heading);font-weight:500;font-size:21px;margin:0">Aircraft Charter</h3></div>
             <p style="font-size:14.5px;line-height:1.6;color:color-mix(in srgb,var(--color-text) 78%,transparent);margin:0;flex:1">Private jet and turboprop charter for executives, government and corporate travel — flexible schedules, discreet service and coverage across the region.</p>
@@ -218,7 +218,7 @@
           </div>
         </div>
         <div style="position:relative;border-radius:var(--radius-lg);overflow:hidden;background:var(--color-surface);box-shadow:var(--shadow-md);display:flex;flex-direction:column" style-hover="box-shadow:var(--shadow-lg)">
-          <div style="position:relative;height:220px"><image-slot id="svc-airside" shape="rect" fit="cover" placeholder="Airside ground operations" style="position:absolute;inset:0;width:100%;height:100%"></image-slot><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%, color-mix(in srgb,var(--color-surface) 92%,transparent) 100%);pointer-events:none"></div></div>
+          <div style="position:relative;height:220px"><img src="uploads/slot-svc-airside.webp" loading="lazy" decoding="async" alt="Airside ground operations" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block" /><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%, color-mix(in srgb,var(--color-surface) 92%,transparent) 100%);pointer-events:none"></div></div>
           <div style="padding:24px 24px 26px;display:flex;flex-direction:column;gap:12px;flex:1">
             <div style="display:flex;align-items:center;gap:11px"><i class="ph ph-gas-pump" style="font-size:24px;color:var(--color-accent)"></i><h3 style="font-family:var(--font-heading);font-weight:500;font-size:21px;margin:0">Airside Services</h3></div>
             <p style="font-size:14.5px;line-height:1.6;color:color-mix(in srgb,var(--color-text) 78%,transparent);margin:0;flex:1">Fuelling, ground handling and ramp support delivered by trained crews — keeping every turnaround safe, compliant and on time, on the apron.</p>
@@ -249,7 +249,7 @@
           <div style="position:relative;width:100%;aspect-ratio:16/9;border-radius:var(--radius-lg);overflow:hidden;background:var(--color-surface);box-shadow:var(--shadow-md)">
             <sc-for list="{{ fleetView }}" as="f" hint-placeholder-count="4">
               <div style="position:absolute;inset:0;transition:opacity .5s ease;opacity:{{ f.op }};pointer-events:{{ f.pe }}">
-                <image-slot id="{{ f.slotId }}" shape="rect" fit="cover" placeholder="{{ f.name }}" style="position:absolute;inset:0;width:100%;height:100%"></image-slot>
+                <img src="{{ f.img }}" loading="lazy" decoding="async" alt="{{ f.name }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block" />
               </div>
             </sc-for>
           </div>
@@ -293,11 +293,11 @@
     <div style="max-width:1180px;margin:0 auto;padding:0 clamp(18px,5vw,72px)">
       <p style="text-align:center;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 58%,transparent);margin:0">Trusted across Ghana's energy &amp; corporate sectors</p>
       <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:32px" data-clients>
-        <div style="height:64px;border-radius:var(--radius-md);overflow:hidden;background:color-mix(in srgb,var(--color-surface) 60%,transparent);filter:grayscale(1);opacity:.85"><image-slot id="client-1" shape="rect" fit="contain" placeholder="Partner logo" style="width:100%;height:100%"></image-slot></div>
-        <div style="height:64px;border-radius:var(--radius-md);overflow:hidden;background:color-mix(in srgb,var(--color-surface) 60%,transparent);filter:grayscale(1);opacity:.85"><image-slot id="client-2" shape="rect" fit="contain" placeholder="Partner logo" style="width:100%;height:100%"></image-slot></div>
-        <div style="height:64px;border-radius:var(--radius-md);overflow:hidden;background:color-mix(in srgb,var(--color-surface) 60%,transparent);filter:grayscale(1);opacity:.85"><image-slot id="client-3" shape="rect" fit="contain" placeholder="Partner logo" style="width:100%;height:100%"></image-slot></div>
-        <div style="height:64px;border-radius:var(--radius-md);overflow:hidden;background:color-mix(in srgb,var(--color-surface) 60%,transparent);filter:grayscale(1);opacity:.85"><image-slot id="client-4" shape="rect" fit="contain" placeholder="Partner logo" style="width:100%;height:100%"></image-slot></div>
-        <div style="height:64px;border-radius:var(--radius-md);overflow:hidden;background:color-mix(in srgb,var(--color-surface) 60%,transparent);filter:grayscale(1);opacity:.85"><image-slot id="client-5" shape="rect" fit="contain" placeholder="Partner logo" style="width:100%;height:100%"></image-slot></div>
+        <div style="height:64px;border-radius:var(--radius-md);overflow:hidden;background:color-mix(in srgb,var(--color-surface) 60%,transparent);filter:grayscale(1);opacity:.85"><div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:color-mix(in srgb,var(--color-text) 40%,transparent);font-size:12px;font-family:var(--font-heading);letter-spacing:0.08em;text-transform:uppercase">Logo</div></div>
+        <div style="height:64px;border-radius:var(--radius-md);overflow:hidden;background:color-mix(in srgb,var(--color-surface) 60%,transparent);filter:grayscale(1);opacity:.85"><div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:color-mix(in srgb,var(--color-text) 40%,transparent);font-size:12px;font-family:var(--font-heading);letter-spacing:0.08em;text-transform:uppercase">Logo</div></div>
+        <div style="height:64px;border-radius:var(--radius-md);overflow:hidden;background:color-mix(in srgb,var(--color-surface) 60%,transparent);filter:grayscale(1);opacity:.85"><div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:color-mix(in srgb,var(--color-text) 40%,transparent);font-size:12px;font-family:var(--font-heading);letter-spacing:0.08em;text-transform:uppercase">Logo</div></div>
+        <div style="height:64px;border-radius:var(--radius-md);overflow:hidden;background:color-mix(in srgb,var(--color-surface) 60%,transparent);filter:grayscale(1);opacity:.85"><div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:color-mix(in srgb,var(--color-text) 40%,transparent);font-size:12px;font-family:var(--font-heading);letter-spacing:0.08em;text-transform:uppercase">Logo</div></div>
+        <div style="height:64px;border-radius:var(--radius-md);overflow:hidden;background:color-mix(in srgb,var(--color-surface) 60%,transparent);filter:grayscale(1);opacity:.85"><div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:color-mix(in srgb,var(--color-text) 40%,transparent);font-size:12px;font-family:var(--font-heading);letter-spacing:0.08em;text-transform:uppercase">Logo</div></div>
       </div>
     </div>
   </section>
@@ -399,7 +399,7 @@
   <footer style="border-top:1px solid var(--color-divider);padding:clamp(48px,6vw,72px) 0 0;background:#353b80">
     <div style="max-width:1180px;margin:0 auto;padding:0 clamp(18px,5vw,72px);display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px" data-footer-grid>
       <div>
-        <img src="uploads/logo-white.png" alt="Century Aviation Ghana" style="height:46px;width:auto" />
+        <img src="uploads/logo-white.png" loading="eager" decoding="async" fetchpriority="high" alt="Century Aviation Ghana" style="height:46px;width:auto" />
         <p style="font-size:13.5px;line-height:1.6;color:color-mix(in srgb,var(--color-text) 62%,transparent);margin:18px 0 0;max-width:34ch">A reliable partner and vital supplier of aviation services to Ghana's energy sector and beyond, for more than 14 years.</p>
       </div>
       <div>
@@ -539,7 +539,7 @@ class Component extends DCLogic {
     const tdot = (i) => i === test ? 'var(--color-accent)' : 'color-mix(in srgb, var(--color-text) 28%, transparent)';
 
     const fleetView = this.fleetData.map((f, i) => ({
-      ...f, slotId: 'fleet-' + f.id, op: i === fleet ? 1 : 0, pe: i === fleet ? 'auto' : 'none',
+      ...f, slotId: 'fleet-' + f.id, img: 'uploads/slot-fleet-' + f.id + '.webp', op: i === fleet ? 1 : 0, pe: i === fleet ? 'auto' : 'none',
       tabColor: i === fleet ? 'var(--color-text)' : 'color-mix(in srgb, var(--color-text) 62%, transparent)',
       tabBorder: i === fleet ? 'var(--color-accent)' : 'transparent',
       tabBorderBox: i === fleet ? 'var(--color-divider)' : 'transparent',

@@ -11,11 +11,11 @@
 <link rel="stylesheet" href="_ds/nocturne-0c353d1b-6a46-40f6-b9c5-bad1c5a16f72/styles.css">
 <script src="_ds/nocturne-0c353d1b-6a46-40f6-b9c5-bad1c5a16f72/_ds_bundle.js"></script>
 <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
-<script src="./image-slot.js"></script>
 <style>
   html { scroll-behavior: smooth; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   body { margin: 0; -webkit-overflow-scrolling: touch; overscroll-behavior-y: none; }
+  image-slot, image-slot img, figure.lighten { touch-action: pan-y !important; }
   @media (max-width: 860px) {
     [data-split] { grid-template-columns: 1fr !important; }
     [data-footer-grid] { grid-template-columns: 1fr 1fr !important; }
@@ -32,7 +32,7 @@
   <header style="position:sticky;top:0;z-index:60;backdrop-filter:blur(16px);background:color-mix(in srgb, var(--color-bg) 80%, transparent);border-bottom:1px solid var(--color-divider)">
     <div style="max-width:1180px;margin:0 auto;padding:13px clamp(18px,5vw,72px);display:flex;align-items:center;gap:24px">
       <a href="Century%20Aviation.dc.html" style="display:flex;align-items:center;margin-right:auto;text-decoration:none;flex:none">
-        <img src="uploads/logo-white.png" alt="Century Aviation Ghana" style="height:58px;width:auto" />
+        <img src="uploads/logo-white.png" loading="eager" decoding="async" fetchpriority="high" alt="Century Aviation Ghana" style="height:58px;width:auto" />
       </a>
       <sc-if value="{{ desktopNav }}" hint-placeholder-val="{{ true }}">
         <nav style="display:flex;align-items:center;gap:28px">
@@ -107,7 +107,7 @@
 
   <!-- HERO -->
   <section style="position:relative;overflow:hidden">
-    <div style="position:absolute;inset:0"><image-slot id="airside-hero" shape="rect" fit="cover" src="uploads/airside-hero-opt.webp" placeholder="Ground handling / jet bridge" style="position:absolute;inset:0;width:100%;height:100%"></image-slot></div>
+    <div style="position:absolute;inset:0"><img src="uploads/airside-hero-opt.webp" loading="eager" decoding="async" fetchpriority="high" alt="Ground handling / jet bridge" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block" /></div>
     <div style="position:absolute;inset:0;background:linear-gradient(180deg, color-mix(in srgb,var(--color-bg) 45%,transparent), color-mix(in srgb,var(--color-bg) 88%,transparent));pointer-events:none"></div>
     <div style="position:absolute;inset:0;background:linear-gradient(90deg, color-mix(in srgb,var(--color-bg) 80%,transparent) 0%, transparent 62%);pointer-events:none"></div>
     <div style="position:relative;max-width:1180px;margin:0 auto;padding:clamp(72px,11vw,150px) clamp(18px,5vw,72px)">
@@ -138,7 +138,7 @@
   <!-- DETAIL SPLIT -->
   <section style="padding:0 0 clamp(48px,7vw,88px)">
     <div style="max-width:1180px;margin:0 auto;padding:0 clamp(18px,5vw,72px);display:grid;grid-template-columns:minmax(0,0.85fr) minmax(0,1.15fr);gap:clamp(32px,5vw,72px);align-items:center" data-split>
-      <figure class="lighten" style="margin:0;border-radius:var(--radius-lg);overflow:hidden;position:relative;aspect-ratio:4/5"><image-slot id="airside-detail" shape="rect" fit="cover" src="uploads/5-opt.webp" placeholder="Jet bridge / ramp equipment" style="position:absolute;inset:0;width:100%;height:100%"></image-slot></figure>
+      <figure class="lighten" style="margin:0;border-radius:var(--radius-lg);overflow:hidden;position:relative;aspect-ratio:4/5"><img src="uploads/5-opt.webp" loading="lazy" decoding="async" alt="Jet bridge / ramp equipment" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block" /></figure>
       <div>
         <p style="font-size:16px;line-height:1.7;color:color-mix(in srgb,var(--color-text) 84%,transparent);margin:0 0 24px">We offer a full range of ground support services, delivered to the highest safety and operational standards.</p>
         <div style="display:flex;flex-direction:column;gap:1px;background:var(--color-divider);border-radius:var(--radius-lg);overflow:hidden">
@@ -187,7 +187,7 @@
   <footer style="border-top:1px solid var(--color-divider);padding:clamp(48px,6vw,72px) 0 0;background:#353b80">
     <div style="max-width:1180px;margin:0 auto;padding:0 clamp(18px,5vw,72px);display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px" data-footer-grid>
       <div>
-        <img src="uploads/logo-white.png" alt="Century Aviation Ghana" style="height:46px;width:auto" />
+        <img src="uploads/logo-white.png" loading="eager" decoding="async" fetchpriority="high" alt="Century Aviation Ghana" style="height:46px;width:auto" />
         <p style="font-size:13.5px;line-height:1.6;color:color-mix(in srgb,var(--color-text) 62%,transparent);margin:18px 0 0;max-width:34ch">A reliable partner and vital supplier of aviation services to Ghana's energy sector and beyond, for more than 14 years.</p>
       </div>
       <div>

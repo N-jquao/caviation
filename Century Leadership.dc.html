@@ -11,11 +11,11 @@
 <link rel="stylesheet" href="_ds/nocturne-0c353d1b-6a46-40f6-b9c5-bad1c5a16f72/styles.css">
 <script src="_ds/nocturne-0c353d1b-6a46-40f6-b9c5-bad1c5a16f72/_ds_bundle.js"></script>
 <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
-<script src="./image-slot.js"></script>
 <style>
   html { scroll-behavior: smooth; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   body { margin: 0; -webkit-overflow-scrolling: touch; overscroll-behavior-y: none; }
+  image-slot, image-slot img, figure.lighten { touch-action: pan-y !important; }
   @media (max-width: 860px) {
     [data-split] { grid-template-columns: 1fr !important; }
     [data-exec] { grid-template-columns: 1fr !important; }
@@ -33,7 +33,7 @@
   <header style="position:sticky;top:0;z-index:60;backdrop-filter:blur(16px);background:color-mix(in srgb, var(--color-bg) 80%, transparent);border-bottom:1px solid var(--color-divider)">
     <div style="max-width:1180px;margin:0 auto;padding:13px clamp(18px,5vw,72px);display:flex;align-items:center;gap:24px">
       <a href="Century%20Aviation.dc.html" style="display:flex;align-items:center;margin-right:auto;text-decoration:none;flex:none">
-        <img src="uploads/logo-white.png" alt="Century Aviation Ghana" style="height:58px;width:auto" />
+        <img src="uploads/logo-white.png" loading="eager" decoding="async" fetchpriority="high" alt="Century Aviation Ghana" style="height:58px;width:auto" />
       </a>
       <sc-if value="{{ desktopNav }}" hint-placeholder-val="{{ true }}">
         <nav style="display:flex;align-items:center;gap:28px">
@@ -125,7 +125,7 @@
     <div style="max-width:1180px;margin:0 auto;padding:0 clamp(18px,5vw,72px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,3vw,40px)" data-exec>
 
       <article style="background:var(--color-surface);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);display:flex;flex-direction:column">
-        <div style="position:relative;aspect-ratio:4/5;background:color-mix(in srgb,var(--color-bg) 60%,transparent)"><image-slot id="exec-1" shape="rect" fit="cover" placeholder="Photo — Julian Fianku Quao" style="position:absolute;inset:0;width:100%;height:100%"></image-slot></div>
+        <div style="position:relative;aspect-ratio:4/5;background:color-mix(in srgb,var(--color-bg) 60%,transparent)"><img src="uploads/slot-exec-1.webp" loading="lazy" decoding="async" alt="Photo — Julian Fianku Quao" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block" /></div>
         <div style="padding:26px clamp(22px,3vw,32px) 30px;display:flex;flex-direction:column;flex:1">
           <h2 style="font-family:var(--font-heading);font-weight:500;font-size:23px;letter-spacing:-0.01em;margin:0">Julian Fianku Quao</h2>
           <p style="font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent);font-family:var(--font-heading);margin:8px 0 0">Director of Safety</p>
@@ -136,7 +136,7 @@
       </article>
 
       <article style="background:var(--color-surface);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);display:flex;flex-direction:column">
-        <div style="position:relative;aspect-ratio:4/5;background:color-mix(in srgb,var(--color-bg) 60%,transparent)"><image-slot id="exec-2" shape="rect" fit="cover" placeholder="Photo — Essie Anno Sackey" style="position:absolute;inset:0;width:100%;height:100%"></image-slot></div>
+        <div style="position:relative;aspect-ratio:4/5;background:color-mix(in srgb,var(--color-bg) 60%,transparent)"><img src="uploads/slot-exec-2.webp" loading="lazy" decoding="async" alt="Photo — Essie Anno Sackey" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block" /></div>
         <div style="padding:26px clamp(22px,3vw,32px) 30px;display:flex;flex-direction:column;flex:1">
           <h2 style="font-family:var(--font-heading);font-weight:500;font-size:23px;letter-spacing:-0.01em;margin:0">Essie Anno Sackey</h2>
           <p style="font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent);font-family:var(--font-heading);margin:8px 0 0">Director of Finance and Administration</p>
@@ -165,7 +165,7 @@
   <footer style="border-top:1px solid var(--color-divider);padding:clamp(48px,6vw,72px) 0 0;background:#353b80">
     <div style="max-width:1180px;margin:0 auto;padding:0 clamp(18px,5vw,72px);display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px" data-footer-grid>
       <div>
-        <img src="uploads/logo-white.png" alt="Century Aviation Ghana" style="height:46px;width:auto" />
+        <img src="uploads/logo-white.png" loading="eager" decoding="async" fetchpriority="high" alt="Century Aviation Ghana" style="height:46px;width:auto" />
         <p style="font-size:13.5px;line-height:1.6;color:color-mix(in srgb,var(--color-text) 62%,transparent);margin:18px 0 0;max-width:34ch">A reliable partner and vital supplier of aviation services to Ghana's energy sector and beyond, for more than 14 years.</p>
       </div>
       <div>
@@ -211,7 +211,7 @@
         </div>
         <div style="display:grid;grid-template-columns:300px 1fr;gap:clamp(20px,3vw,40px);padding:0 clamp(22px,3vw,40px) clamp(28px,3vw,40px)" data-modal-grid>
           <div style="position:relative;aspect-ratio:4/5;border-radius:var(--radius-md);overflow:hidden;background:color-mix(in srgb,var(--color-bg) 60%,transparent)">
-            <image-slot id="{{ modal.slotId }}" shape="rect" fit="cover" placeholder="{{ modal.name }}" style="position:absolute;inset:0;width:100%;height:100%"></image-slot>
+            <img src="{{ modal.img }}" loading="lazy" decoding="async" alt="{{ modal.name }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block" />
           </div>
           <div>
             <h2 style="font-family:var(--font-heading);font-weight:500;font-size:clamp(24px,3vw,32px);letter-spacing:-0.01em;margin:0">{{ modal.name }}</h2>
@@ -237,14 +237,14 @@ class Component extends DCLogic {
   get execs() {
     return {
       julian: {
-        slotId: 'exec-1', name: 'Julian Fianku Quao', title: 'Director of Safety',
+        slotId: 'exec-1', img: 'uploads/slot-exec-1.webp', name: 'Julian Fianku Quao', title: 'Director of Safety',
         bio: [
           'Julian is a founding shareholder as well as the Director of Safety with Century Aviation Company Ltd. He is also an airline Captain with Emirates Airlines on the Boeing fleet. He started his career in aviation with Ghana Airways Ltd as a co-pilot in December 1993 and flew extensively in the African region on the DC-9 aircraft. He later upgraded onto the long-haul fleet, the DC-10 aircraft, where he flew mostly to Europe and North America. He joined Singapore Airlines in February 2005 on the B747 fleet where he worked for 3 years, before moving to Emirates Airlines.',
           "Julian started his education at St Augustine's secondary school in Cape Coast, where he gained his O and A level certificates. He obtained his commercial pilot's license in Medford, New Jersey, USA. Julian is also an Executive Director of Swift Aviation Services in Accra, Ghana.",
         ],
       },
       essie: {
-        slotId: 'exec-2', name: 'Essie Anno Sackey', title: 'Director of Finance and Administration',
+        slotId: 'exec-2', img: 'uploads/slot-exec-2.webp', name: 'Essie Anno Sackey', title: 'Director of Finance and Administration',
         bio: [
           'Essie is a shareholder as well as the Director of Finance and Administration of Century Aviation. Prior to becoming a shareholder of Century Aviation Ltd and PHI Century, Essie worked as Managing Director of Ghana Airports Company Ltd from 2007 to 2009, with responsibility for managing all airports and aerodromes in Ghana. She had overall responsibility for the operational, technical, financial and human resources of the company. Essie also worked with British Airways in Ghana from 1989 and rose to become the first female and Ghanaian Country Manager in Ghana, with responsibility for Francophone West Africa, in 1999.',
           'Essie is a product of Wesley Girls High School, Cape Coast, from where she proceeded to the University of Ghana, Legon, where she was awarded a B.A. Hons degree in Economics and Statistics. She studied for and obtained an MBA from the Graduate School of Management, Brigham Young University, Utah, USA. She is a shareholder in various companies and serves on boards. Essie is an alumnus of the African Leadership Initiative, part of the Aspen Global Leadership Network.',
